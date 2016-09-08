@@ -1,3 +1,0 @@
-# ajan-optimoija
-
-jotakin
