@@ -38,5 +38,18 @@ public class King implements Piece {
         this.alive = false;
     }
     
+    @Override
+    public int getRow() {
+        return this.x;
+    }
     
+    @Override
+    public int getColumn() {
+        return this.y;
+    }
+    
+    @Override
+    public boolean isAlive() {
+        return this.isAlive();
+    }
 }

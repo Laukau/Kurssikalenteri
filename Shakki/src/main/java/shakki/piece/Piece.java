@@ -11,15 +11,17 @@ package shakki.piece;
  */
 public interface Piece {
     
-    //Moves the piece to a square (x,y)
-    void move(int x, int y);
     
-    //Checks if the move tried is possible for the piece
+    
+    //Checks if a move to square (x,y) is possible for the piece
     boolean possibleMove(int x, int y);
 
     
     //Removes the piece from play
     void getsCaptured();
-    
-    
+    //Moves the piece to a square (x,y)
+    void move(int x, int y);
+    int getRow();
+    int getColumn();
+    boolean isAlive();
 }
