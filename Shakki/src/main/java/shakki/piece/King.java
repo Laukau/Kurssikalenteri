@@ -9,23 +9,15 @@ package shakki.piece;
  *
  * @author Laura
  */
-public class King implements Piece {
+public class King extends Piece {
     private int x;
     private int y;
     private boolean alive;
-    
+
     public King(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.alive = true;
+        super(x, y);
     }
     
-    
-    @Override
-    public void move(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
     
     @Override
     public boolean possibleMove(int x, int y) {
@@ -33,23 +25,5 @@ public class King implements Piece {
         return true;
     }
     
-    @Override
-    public void getsCaptured() {
-        this.alive = false;
-    }
     
-    @Override
-    public int getRow() {
-        return this.x;
-    }
-    
-    @Override
-    public int getColumn() {
-        return this.y;
-    }
-    
-    @Override
-    public boolean isAlive() {
-        return this.isAlive();
-    }
 }

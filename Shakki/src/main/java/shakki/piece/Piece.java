@@ -9,19 +9,41 @@ package shakki.piece;
  *
  * @author Laura
  */
-public interface Piece {
+public abstract class Piece {
+    private int x;
+    private int y;
+    private boolean alive;
     
-    
-    
-    //Checks if a move to square (x,y) is possible for the piece
-    boolean possibleMove(int x, int y);
+    public Piece(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.alive = true;
+    }
 
-    
+    //Checks if a move to square (x,y) is possible for the piece
+    abstract boolean possibleMove(int x, int y);
+
     //Removes the piece from play
-    void getsCaptured();
+    public void getsCaptured() {
+        this.alive = false;
+    }
+
     //Moves the piece to a square (x,y)
-    void move(int x, int y);
-    int getRow();
-    int getColumn();
-    boolean isAlive();
+    public void move(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getRow() {
+        return this.x;
+    }
+
+    public int getColumn() {
+        return this.y;
+    }
+
+    public boolean isAlive() {
+        return this.alive;
+    }
+    
 }

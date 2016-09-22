@@ -5,19 +5,17 @@
  */
 package shakki.game;
 
-import shakki.player.HumanPlayer;
-import shakki.player.Player;
-
 /**
  *
  * @author Laura
  */
-public class Chess {
-    private boolean continues;
-    private Player black;
-    
-    public Chess () {
-        this.continues = true;
-        this.black = new HumanPlayer();
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
     }
+    
 }

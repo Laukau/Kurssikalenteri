@@ -13,11 +13,11 @@ import shakki.piece.Piece;
  *
  * @author Laura
  */
-public class Black implements Player{
+public class HumanPlayer implements Player{
     private boolean turnContinues;
     private List<Piece> pieces;
     
-    public Black() {
+    public HumanPlayer() {
         this.turnContinues = false;
         this.pieces = new ArrayList();
     }
