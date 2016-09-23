@@ -7,3 +7,4 @@ Päivä | Tunnit | Kuvaus
 16.9.2016 | 5h | Repon ja proktektin nimien sekä aihemäärittelyn muuttaminen uutta aihetta vastaavaksi, luokkakaavion tekeminen, README.md -tiedoston muokkaaminen ja ohjelmoinnin aloittaminen sekä tekstitiedostojen lisääminen pit-testejä varten
 22.9.2016 | 5h | Testien aloittaminen, luokkien lisääminen
 23.9.2016 | 3h | Checkstyle-tekstitiedoston luominen, checkstyle- ja pit-raporttien toimimattomuuden selvittäminen, luokkakaavion päivittäminen
+23.9.2016 | 2h | Pit- ja checkstyle-raporttien luominen ja ohjelman muokkaaminen niiden perusteella
