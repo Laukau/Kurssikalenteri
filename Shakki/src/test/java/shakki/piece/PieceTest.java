@@ -63,15 +63,26 @@ public class PieceTest {
 
     @Test
     public void pieceMovesRight() {
-        piece.move(2, 4);
-        assertEquals("2, 4", piece.getRow() + ", " + piece.getColumn());
+        boolean value = piece.move(2, 4);
+        assertEquals(2, piece.getRow());
+        assertEquals(4, piece.getColumn());
+        assertEquals(value, true);
     }
 
     @Test
     public void cannotMoveOutOfBoard() {
-        piece.move(8, 5);
+        boolean value = piece.move(8, 5);
         assertEquals(6, piece.getRow());
         assertEquals(2, piece.getColumn());
+        assertEquals(value, false);
+    }
+    
+    @Test
+    public void cannotStayStill() {
+        boolean value = piece.move(piece.getRow(), piece.getColumn());
+        assertEquals(6, piece.getRow());
+        assertEquals(2, piece.getColumn());
+        assertEquals(false, value);
     }
 
     @Test

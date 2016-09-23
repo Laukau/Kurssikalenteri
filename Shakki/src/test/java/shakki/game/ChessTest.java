@@ -17,29 +17,11 @@ import static org.junit.Assert.*;
  * @author Laura
  */
 public class ChessTest {
-
-    public ChessTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
+    Chess chess;
+    
     @Before
     public void setUp() {
+        chess = new Chess();
     }
-
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
 }

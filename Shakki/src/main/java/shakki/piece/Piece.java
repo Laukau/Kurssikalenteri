@@ -53,12 +53,17 @@ public abstract class Piece {
     }
 
     //Moves the piece to a square (x,y)
-    public void move(int x, int y) {
-        if ((0 <= x && x < 8 && 0 <= y && y < 8) && possibleMove(x, y)) {
+    public boolean move(int x, int y) {
+        if (this.x == x && this.y == y) {
+            System.out.println("Some piece has to move");
+            return false;
+        } else if ((0 <= x && x < 8 && 0 <= y && y < 8) && possibleMove(x, y)) {
             this.x = x;
             this.y = y;
+            return true;
         } else {
-            System.out.println("Siirto ei ole mahdollinen");
+            System.out.println("Move not possible");
+            return false;
         }
 
     }

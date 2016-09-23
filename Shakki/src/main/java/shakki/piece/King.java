@@ -21,7 +21,7 @@ public class King extends Piece {
 
     @Override
     public boolean possibleMove(int x, int y) {
-
+        
         return true;
     }
 
