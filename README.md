@@ -7,3 +7,7 @@ Pelissä kaksi pelaajaa siirtää vuorotellen omia nappuloitaan shakkilaudalla p
 [aiheen kuvaus](dokumentaatio/aiheenKuvausJaRakenne.md)
 
 [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+
+[pit-raportti](https://htmlpreview.github.io/?dokumentaatio/pit-report.html)
+
+[checkstyle-raportti](https://htmlpreview.github.io/?dokumentaatio/checkstyle-report.html)
