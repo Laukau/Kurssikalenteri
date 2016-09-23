@@ -9,7 +9,7 @@ package shakki.piece;
  *
  * @author Laura
  */
-public class Pawn extends Piece{
+public class Pawn extends Piece {
 
     public Pawn(int x, int y, Color color) {
         super(x, y, color);
@@ -25,5 +25,5 @@ public class Pawn extends Piece{
     public boolean possibleMove(int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

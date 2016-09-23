@@ -9,7 +9,7 @@ package shakki.piece;
  *
  * @author Laura
  */
-public class Rook extends Piece{
+public class Rook extends Piece {
 
     public Rook(int x, int y, Color color) {
         super(x, y, color);
@@ -19,5 +19,5 @@ public class Rook extends Piece{
     public boolean possibleMove(int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

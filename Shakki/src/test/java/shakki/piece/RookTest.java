@@ -18,24 +18,25 @@ import static shakki.piece.Color.WHITE;
  * @author Laura
  */
 public class RookTest {
+
     Rook rook;
-    
+
     public RookTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        rook = new Rook(0,2,WHITE);
+        rook = new Rook(0, 2, WHITE);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,10 +44,9 @@ public class RookTest {
     /**
      * Test of possibleMove method, of class Rook.
      */
-    
     @Test
     public void testPossibleMove() {
-        
+
     }
-    
+
 }

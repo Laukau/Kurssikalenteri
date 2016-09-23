@@ -10,5 +10,8 @@ package shakki.player;
  * @author Laura
  */
 public interface Player {
-    
+
+    boolean whiteTurn();
+
+    void changeTurn();
 }

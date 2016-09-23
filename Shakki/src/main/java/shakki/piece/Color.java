@@ -10,5 +10,6 @@ package shakki.piece;
  * @author Laura
  */
 public enum Color {
+
     WHITE, BLACK;
 }

@@ -17,18 +17,19 @@ import static org.junit.Assert.*;
  * @author Laura
  */
 public class HumanPlayerTest {
+
     private HumanPlayer hp;
-    
+
     @Before
     public void setUp() {
         hp = new HumanPlayer();
     }
-    
+
     @Test
     public void constructorSetsWhiteTurn() {
         assertEquals(true, hp.whiteTurn());
     }
-    
+
     @Test
     public void ChangeTurnChangesTurn() {
         boolean turn = hp.whiteTurn();

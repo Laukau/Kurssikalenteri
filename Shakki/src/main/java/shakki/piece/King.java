@@ -10,6 +10,7 @@ package shakki.piece;
  * @author Laura
  */
 public class King extends Piece {
+
     private int x;
     private int y;
     private boolean alive;
@@ -17,13 +18,11 @@ public class King extends Piece {
     public King(int x, int y, Color color) {
         super(x, y, color);
     }
-    
-    
+
     @Override
     public boolean possibleMove(int x, int y) {
-        
+
         return true;
     }
-    
-    
+
 }

@@ -13,16 +13,19 @@ import shakki.piece.Piece;
  *
  * @author Laura
  */
-public class HumanPlayer implements Player{
+public class HumanPlayer implements Player {
+
     private boolean whitePlayer;
-    
+
     public HumanPlayer() {
         this.whitePlayer = true;
     }
+
     @Override
     public boolean whiteTurn() {
         return this.whitePlayer;
     }
+
     @Override
     public void changeTurn() {
         boolean turn = this.whitePlayer;
