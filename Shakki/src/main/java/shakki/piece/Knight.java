@@ -15,8 +15,14 @@ public class Knight extends Piece{
         super(x, y, color);
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     @Override
-    boolean possibleMove(int x, int y) {
+    public boolean possibleMove(int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
