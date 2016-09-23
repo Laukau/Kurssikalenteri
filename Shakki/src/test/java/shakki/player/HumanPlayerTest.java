@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shakki.piece;
+package shakki.player;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,35 +16,24 @@ import static org.junit.Assert.*;
  *
  * @author Laura
  */
-public class KingTest {
-    
-    public KingTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-        
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+public class HumanPlayerTest {
+    private HumanPlayer hp;
     
     @Before
     public void setUp() {
+        hp = new HumanPlayer();
     }
-    
-    @After
-    public void tearDown() {
-    }
-
     
     @Test
-    public void testPossibleMove() {
-        
+    public void constructorSetsWhiteTurn() {
+        assertEquals(true, hp.whiteTurn());
     }
-
     
-   
-    
+    @Test
+    public void ChangeTurnChangesTurn() {
+        boolean turn = hp.whiteTurn();
+        hp.changeTurn();
+        boolean newTurn = hp.whiteTurn();
+        assertEquals(turn, !newTurn);
+    }
 }

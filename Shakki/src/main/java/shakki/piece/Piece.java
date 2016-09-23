@@ -55,7 +55,7 @@ public abstract class Piece {
             this.x = x;
             this.y = y;
         } else {
-            System.out.println("Siirto ei ole mahdollinen. HV");
+            System.out.println("Siirto ei ole mahdollinen");
         }
         
     }

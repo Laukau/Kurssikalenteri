@@ -19,10 +19,11 @@ public class HumanPlayer implements Player{
     public HumanPlayer() {
         this.whitePlayer = true;
     }
-    
+    @Override
     public boolean whiteTurn() {
         return this.whitePlayer;
     }
+    @Override
     public void changeTurn() {
         boolean turn = this.whitePlayer;
         this.whitePlayer = !turn;
