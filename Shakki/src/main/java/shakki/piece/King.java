@@ -14,8 +14,8 @@ public class King extends Piece {
     private int y;
     private boolean alive;
 
-    public King(int x, int y) {
-        super(x, y);
+    public King(int x, int y, Color color) {
+        super(x, y, color);
     }
     
     

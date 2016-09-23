@@ -9,6 +9,15 @@ package shakki.piece;
  *
  * @author Laura
  */
-public class Knight {
+public class Knight extends Piece{
+
+    public Knight(int x, int y, Color color) {
+        super(x, y, color);
+    }
+
+    @Override
+    boolean possibleMove(int x, int y) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

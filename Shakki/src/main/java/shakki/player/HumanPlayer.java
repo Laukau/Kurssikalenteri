@@ -14,11 +14,17 @@ import shakki.piece.Piece;
  * @author Laura
  */
 public class HumanPlayer implements Player{
-    private boolean turnContinues;
-    private List<Piece> pieces;
+    private boolean whitePlayer;
     
     public HumanPlayer() {
-        this.turnContinues = false;
-        this.pieces = new ArrayList();
+        this.whitePlayer = true;
+    }
+    
+    public boolean whiteTurn() {
+        return this.whitePlayer;
+    }
+    public void changeTurn() {
+        boolean turn = this.whitePlayer;
+        this.whitePlayer = !turn;
     }
 }
