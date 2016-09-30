@@ -5,19 +5,11 @@
  */
 package shakki.game;
 
-import java.util.ArrayList;
-import java.util.List;
-import shakki.piece.Bishop;
-import static shakki.piece.Color.BLACK;
-import static shakki.piece.Color.WHITE;
+
 import shakki.piece.Piece;
 import shakki.player.HumanPlayer;
 import shakki.player.Player;
-import shakki.piece.King;
-import shakki.piece.Knight;
-import shakki.piece.Pawn;
-import shakki.piece.Queen;
-import shakki.piece.Rook;
+
 
 /**
  *

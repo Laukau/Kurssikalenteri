@@ -21,7 +21,10 @@ public class Rook extends Piece {
 
     @Override
     public boolean legalMove(Position from, Position to, ChessBoard board) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(!super.legalMove(from, to, board) && !super.pieceBetween(from, to, board)) {
+            return false;
+        }
+        return from.getRow() == to.getRow() || from.getColumn() == to.getColumn();
+    
     }
-
 }

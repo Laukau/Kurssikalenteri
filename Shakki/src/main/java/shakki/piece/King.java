@@ -25,7 +25,8 @@ public class King extends Piece {
         if(!super.legalMove(from, to, board)) {
             return false;
         }
-        return true;
+        return from.getRow() - 1 <= to.getRow() && from.getRow() + 1 >= to.getRow() && from.getColumn() - 1 <= to.getColumn() && from.getColumn() + 1 >= to.getColumn();
+        
     }
 
 }
