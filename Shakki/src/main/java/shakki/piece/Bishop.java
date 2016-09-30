@@ -5,18 +5,21 @@
  */
 package shakki.piece;
 
+import shakki.game.ChessBoard;
+import shakki.game.Position;
+
 /**
  *
  * @author Laura
  */
 public class Bishop extends Piece {
 
-    public Bishop(int x, int y, Color color) {
-        super(x, y, color);
+    public Bishop(Color color) {
+        super(color);
     }
 
     @Override
-    public boolean possibleMove(int x, int y) {
+    public boolean legalMove(Position from, Position to, ChessBoard board) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

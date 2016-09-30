@@ -5,8 +5,9 @@
  */
 package shakki.player;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import static shakki.piece.Color.BLACK;
+import static shakki.piece.Color.WHITE;
 import shakki.piece.Piece;
 
 /**
@@ -30,5 +31,10 @@ public class HumanPlayer implements Player {
     public void changeTurn() {
         boolean turn = this.whitePlayer;
         this.whitePlayer = !turn;
+    }
+    
+    @Override
+    public boolean movingOwnPiece(Piece piece) {
+        return (whitePlayer && (piece.getColor() == WHITE)) && (!whitePlayer && (piece.getColor() == BLACK));
     }
 }

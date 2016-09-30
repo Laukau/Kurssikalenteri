@@ -5,23 +5,26 @@
  */
 package shakki.piece;
 
+import shakki.game.ChessBoard;
+import shakki.game.Position;
+
 /**
  *
  * @author Laura
  */
 public class King extends Piece {
 
-    private int x;
-    private int y;
     private boolean alive;
 
-    public King(int x, int y, Color color) {
-        super(x, y, color);
+    public King(Color color) {
+        super(color);
     }
 
     @Override
-    public boolean possibleMove(int x, int y) {
-        
+    public boolean legalMove(Position from, Position to, ChessBoard board) {
+        if(!super.legalMove(from, to, board)) {
+            return false;
+        }
         return true;
     }
 
