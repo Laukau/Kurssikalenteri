@@ -21,10 +21,11 @@ public class Rook extends Piece {
 
     @Override
     public boolean legalMove(Position from, Position to, ChessBoard board) {
-        if(!super.legalMove(from, to, board) && !super.pieceBetween(from, to, board)) {
+        if(!super.legalMove(from, to, board) || super.pieceBetweenSameColumnOrRow(from, to, board)) {
             return false;
         }
         return from.getRow() == to.getRow() || from.getColumn() == to.getColumn();
     
     }
+    
 }

@@ -10,7 +10,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import shakki.game.ChessBoard;
 import static shakki.piece.Color.WHITE;
 
 /**
@@ -20,33 +20,17 @@ import static shakki.piece.Color.WHITE;
 public class RookTest {
 
     Rook rook;
-
-    public RookTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    ChessBoard board;
 
     @Before
     public void setUp() {
-        rook = new Rook(0, 2, WHITE);
+        rook = new Rook(WHITE);
+        board = new ChessBoard();
     }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of possibleMove method, of class Rook.
-     */
+    
     @Test
-    public void testPossibleMove() {
-
+    public void testLegalMove() {
+        
     }
 
 }

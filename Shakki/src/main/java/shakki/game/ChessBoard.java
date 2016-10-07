@@ -32,7 +32,7 @@ public class ChessBoard {
                     {null, null, null, null, null, null, null, null},
                     {new Pawn(BLACK), new Pawn(BLACK), new Pawn(BLACK), new Pawn(BLACK), 
                     new Pawn(BLACK), new Pawn(BLACK), new Pawn(BLACK), new Pawn(BLACK)},
-                    {new Rook(black), new Knight(BLACK), new Bishop(BLACK), new Queen(BLACK), 
+                    {new Rook(BLACK), new Knight(BLACK), new Bishop(BLACK), new Queen(BLACK), 
                     new King(BLACK), new Bishop(BLACK), new Knight(BLACK), new Rook(BLACK)}};
     }
     

@@ -6,6 +6,8 @@
 package shakki.game;
 
 
+import shakki.piece.King;
+import shakki.piece.Pawn;
 import shakki.piece.Piece;
 import shakki.player.HumanPlayer;
 import shakki.player.Player;
@@ -29,7 +31,7 @@ public class Chess {
     }
 
     public void play() {
-
+        
     }
     
     //Moves piece if possible
@@ -38,12 +40,19 @@ public class Chess {
         Piece captured = board.getPiece(to);
         
         if(moving.legalMove(from, to, board) && (moving.getColor() != captured.getColor()) && player.movingOwnPiece(moving)) {
+            if(captured.getClass() == King.class) {
+                this.continues = false;
+            }
+            if(captured.getClass() == Pawn.class) {
+                
+            }
             board.setPiece(moving, to);
+            board.setPiece(null, from);
             player.changeTurn();
         }
     }
     
-    //Tells if the game is over
+    //Returns true if the game is over and false if the game continues
     public boolean checkmate() {
         return !this.continues;
     }

@@ -31,7 +31,7 @@ public class HumanPlayerTest {
     }
 
     @Test
-    public void ChangeTurnChangesTurn() {
+    public void changeTurnChangesTurn() {
         boolean turn = hp.whiteTurn();
         hp.changeTurn();
         boolean newTurn = hp.whiteTurn();

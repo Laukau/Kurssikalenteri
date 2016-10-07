@@ -19,11 +19,11 @@ public class Position {
     }
     
     public int getRow() {
-        return this.x;
+        return this.y;
     }
     
     public int getColumn() {
-        return this.y;
+        return this.x;
     }
     
     @Override
