@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Provides the chessboeard.
  */
 package shakki.game;
 
@@ -13,10 +11,6 @@ import static shakki.piece.Color.BLACK;
 import static shakki.piece.Color.WHITE;
 
 
-/**
- *
- * @author Laura
- */
 public class ChessBoard {
     private Piece[][] board;
     
@@ -36,11 +30,11 @@ public class ChessBoard {
                     new King(BLACK), new Bishop(BLACK), new Knight(BLACK), new Rook(BLACK)}};
     }
     
-    public Piece getPiece(Position pos) {
+    public Piece getPiece(Square pos) {
         return board[pos.getRow()][pos.getColumn()];
     }
     
-    public void setPiece(Piece piece, Position pos) {
+    public void setPiece(Piece piece, Square pos) {
         board[pos.getRow()][pos.getColumn()] = piece;
     }
 }

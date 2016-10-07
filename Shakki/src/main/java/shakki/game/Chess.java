@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Class provides the actual game logic.
  */
 package shakki.game;
 
@@ -13,10 +11,7 @@ import shakki.player.HumanPlayer;
 import shakki.player.Player;
 
 
-/**
- *
- * @author Laura
- */
+
 public class Chess {
 
     private boolean continues;
@@ -34,25 +29,32 @@ public class Chess {
         
     }
     
-    //Moves piece if possible
-    public void move(Position from, Position to) {
+    /**
+     * If possible, moves the piece and changes the turn.
+     * Also checks some game situations.
+     * @param from The initial position
+     * @param to The destination
+     */
+    public void move(Square from, Square to) {
         Piece moving = board.getPiece(from);
         Piece captured = board.getPiece(to);
         
-        if(moving.legalMove(from, to, board) && (moving.getColor() != captured.getColor()) && player.movingOwnPiece(moving)) {
-            if(captured.getClass() == King.class) {
+        if (moving.legalMove(from, to, board) && (moving.getColor() != captured.getColor()) && player.movingOwnPiece(moving)) {
+            if (captured.getClass() == King.class) {
                 this.continues = false;
             }
-            if(captured.getClass() == Pawn.class) {
-                
-            }
+            
             board.setPiece(moving, to);
             board.setPiece(null, from);
             player.changeTurn();
         }
     }
     
-    //Returns true if the game is over and false if the game continues
+    /**
+     * Method checks if it is checkmate.
+     * 
+     * @return true if the game is over and false if the game continues
+     */
     public boolean checkmate() {
         return !this.continues;
     }

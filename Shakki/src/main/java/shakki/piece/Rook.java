@@ -1,31 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Class provides the rooks and their moving logic.
  */
 package shakki.piece;
 
 import shakki.game.ChessBoard;
-import shakki.game.Position;
+import shakki.game.Square;
 
-/**
- *
- * @author Laura
- */
 public class Rook extends Piece {
 
     public Rook(Color color) {
         super(color);
     }
 
-
     @Override
-    public boolean legalMove(Position from, Position to, ChessBoard board) {
-        if(!super.legalMove(from, to, board) || super.pieceBetweenSameColumnOrRow(from, to, board)) {
+    public boolean legalMove(Square from, Square to, ChessBoard board) {
+        if (!super.legalMove(from, to, board) || super.pieceBetweenSameColumnOrRow(from, to, board)) {
             return false;
         }
         return from.getRow() == to.getRow() || from.getColumn() == to.getColumn();
-    
+
     }
-    
+
 }

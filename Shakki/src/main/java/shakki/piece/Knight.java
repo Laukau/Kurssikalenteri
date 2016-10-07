@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Class provides the knights and their moving logic.
  */
 package shakki.piece;
 
 import shakki.game.ChessBoard;
-import shakki.game.Position;
+import shakki.game.Square;
 
-/**
- *
- * @author Laura
- */
+
 public class Knight extends Piece {
 
     public Knight(Color color) {
@@ -19,7 +14,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public boolean legalMove(Position from, Position to, ChessBoard board) {
+    public boolean legalMove(Square from, Square to, ChessBoard board) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

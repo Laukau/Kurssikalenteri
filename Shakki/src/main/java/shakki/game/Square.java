@@ -1,19 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Provides the square on the board.
  */
 package shakki.game;
 
-/**
- *
- * @author Laura
- */
-public class Position {
+
+public class Square {
     private int x;
     private int y;
     
-    public Position(int x, int y) {
+    public Square(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -28,10 +23,10 @@ public class Position {
     
     @Override
     public boolean equals(Object o) {
-        if(!(o instanceof Position)) {
+        if (!(o instanceof Square)) {
             return false;
         }
-        Position pos = (Position) o;
+        Square pos = (Square) o;
         return pos.x == this.x && pos.y == this.y;
     }
 }

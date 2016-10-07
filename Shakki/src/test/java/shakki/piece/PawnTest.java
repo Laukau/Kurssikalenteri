@@ -12,7 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import shakki.game.ChessBoard;
-import shakki.game.Position;
+import shakki.game.Square;
 import static shakki.piece.Color.BLACK;
 import static shakki.piece.Color.WHITE;
 
@@ -35,32 +35,32 @@ public class PawnTest {
     
     @Test
     public void canMoveOneSquareForward() {
-        assertTrue(pawn1.legalMove(new Position(7,1), new Position(7,2), board));
-        assertTrue(pawn2.legalMove(new Position(0,6), new Position(0,5), board));
+        assertTrue(pawn1.legalMove(new Square(7,1), new Square(7,2), board));
+        assertTrue(pawn2.legalMove(new Square(0,6), new Square(0,5), board));
     }
     
     @Test
     public void cannotMoveBackwards() {
-        Position pos1 = new Position(2,3);
-        Position pos2 = new Position(5,3);
+        Square pos1 = new Square(2,3);
+        Square pos2 = new Square(5,3);
         board.setPiece(pawn1, pos1);
         board.setPiece(pawn2, pos2);
         
-        assertFalse(pawn1.legalMove(pos1, new Position(2,2), board));
-        assertFalse(pawn2.legalMove(pos2, new Position(5,4), board));
+        assertFalse(pawn1.legalMove(pos1, new Square(2,2), board));
+        assertFalse(pawn2.legalMove(pos2, new Square(5,4), board));
     }
     
     @Test
     public void canMoveTwoSquaresWithFirstMove() {
-        assertTrue(pawn1.legalMove(new Position(1,1), new Position(1,3), board));
-        assertTrue(pawn2.legalMove(new Position(5,6), new Position(5,4), board));
+        assertTrue(pawn1.legalMove(new Square(1,1), new Square(1,3), board));
+        assertTrue(pawn2.legalMove(new Square(5,6), new Square(5,4), board));
     }
     
     @Test
     public void cannotMoveTwoSquaresAfterFirstMove() {
-        Position to = new Position(7,2);
-        pawn1.legalMove(new Position(7,1), to, board);
+        Square to = new Square(7,2);
+        pawn1.legalMove(new Square(7,1), to, board);
         board.setPiece(pawn1, to);
-        assertTrue(pawn1.legalMove(to, new Position(7,4), board));
+        assertFalse(pawn1.legalMove(to, new Square(7,4), board));
     }
 }

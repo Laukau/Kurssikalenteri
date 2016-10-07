@@ -1,17 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Class provides the kings and their moving logic.
  */
 package shakki.piece;
 
 import shakki.game.ChessBoard;
-import shakki.game.Position;
+import shakki.game.Square;
 
-/**
- *
- * @author Laura
- */
 public class King extends Piece {
 
     private boolean alive;
@@ -21,8 +15,8 @@ public class King extends Piece {
     }
 
     @Override
-    public boolean legalMove(Position from, Position to, ChessBoard board) {
-        if(!super.legalMove(from, to, board)) {
+    public boolean legalMove(Square from, Square to, ChessBoard board) {
+        if (!super.legalMove(from, to, board)) {
             return false;
         }
         return from.getRow() - 1 <= to.getRow() && from.getRow() + 1 >= to.getRow() && from.getColumn() - 1 <= to.getColumn() && from.getColumn() + 1 >= to.getColumn();
