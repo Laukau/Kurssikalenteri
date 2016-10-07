@@ -23,4 +23,4 @@ Pelin tavoite on saattaa vastustajan kuningas shakkimattiin eli tilanteeseen, jo
 - Luovuttaminen
   - Vaatii vahvistuksen
 
-![luokkakaavio](http://yuml.me9ad82764 "Määrittelyvaiheen luokkakaavio")
+![luokkakaavio](http://yuml.me/9ad82764 "Määrittelyvaiheen luokkakaavio")
