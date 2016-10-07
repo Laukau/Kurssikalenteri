@@ -8,6 +8,6 @@ Pelissä kaksi pelaajaa siirtää vuorotellen omia nappuloitaan shakkilaudalla p
 
 [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[pit-raportti](https://htmlpreview.github.io/?dokumentaatio/pit-report.html)
 
-[checkstyle-raportti](https://htmlpreview.github.io/?dokumentaatio/checkstyle-report.html)
+
+[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Laukau/Shakkipeli/blob/master/dokumentaatio/checkstyle-raportti/checkstyle-report.html)
