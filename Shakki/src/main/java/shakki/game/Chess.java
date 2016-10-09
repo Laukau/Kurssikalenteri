@@ -39,7 +39,7 @@ public class Chess {
         Piece moving = board.getPiece(from);
         Piece captured = board.getPiece(to);
         
-        if (moving.legalMove(from, to, board) && (moving.getColor() != captured.getColor()) && player.movingOwnPiece(moving)) {
+        if (moving.legalMove(from, to, board) && (moving.getColor() != captured.getColor()) && !player.movingOwnPiece(moving)) {
             if (captured.getClass() == King.class) {
                 this.continues = false;
             }

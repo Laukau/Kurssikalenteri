@@ -10,7 +10,7 @@ import static shakki.piece.Color.BLACK;
 public class Pawn extends Piece {
 
     private boolean firstMove;
-    private int direction;
+    private final int direction;
 
     public Pawn(Color color) {
         super(color);
@@ -33,7 +33,7 @@ public class Pawn extends Piece {
             firstMove = false;
             return true;
         } else if (firstMove && (from.getRow() + 2 * direction == to.getRow() && from.getColumn() == to.getColumn())) { //Can move two squares forward with first move
-            if(board.getPiece(new Square(from.getColumn(), from.getRow() + direction)) != null) {
+            if(board.getPiece(new Square(from.getColumn(), from.getRow() + direction)) != null) { //The next square has to be empty
                 firstMove = false;
                 return true;
             }
