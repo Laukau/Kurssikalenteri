@@ -8,3 +8,9 @@ Päivä | Tunnit | Kuvaus
 22.9.2016 | 5h | Testien aloittaminen, luokkien lisääminen
 23.9.2016 | 3h | Checkstyle-tekstitiedoston luominen, checkstyle- ja pit-raporttien toimimattomuuden selvittäminen, luokkakaavion päivittäminen
 23.9.2016 | 2h | Pit- ja checkstyle-raporttien luominen ja ohjelman muokkaaminen niiden perusteella
+24.9.2016 | 2h | Koodikatselmointikohteeseen tutustuminen
+30.9.2016 | 5h | Ohjelman refactorointia, laudan ja ruutujen luominen, laillisen siirron logiikan lisääminen, kuninkaan ja tornin liikkumislogiikan lisääminen
+6.10.2016 | 2h | Käyttöliittymien kertaamista
+7.10.2016 | 8h | Sotilaan liikkumislogiikan lisääminen, JavaDocin generoiminen, 2 sekvenssikaavion piirtäminen, uuden checkstyle-raportin luominen (tosin linkitti vanhan), pelilaudan korjailuyrityksiä (ei pystynyt luomaan pit-raporttia)
+8.10.2016 | 1h | Kuningattaren ja lähetin liikkumislogiikan lisääminen ja JavaDoc-virheiden korjaaminen
+9.10.2016 |    | Toinen koodikatselmointi
