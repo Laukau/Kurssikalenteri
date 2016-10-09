@@ -16,11 +16,9 @@ public class King extends Piece {
 
     @Override
     public boolean legalMove(Square from, Square to, ChessBoard board) {
-        if (!super.legalMove(from, to, board)) {
-            return false;
-        }
-        return from.getRow() - 1 <= to.getRow() && from.getRow() + 1 >= to.getRow() && from.getColumn() - 1 <= to.getColumn() && from.getColumn() + 1 >= to.getColumn();
+        boolean kingMove = from.getRow() - 1 <= to.getRow() && from.getRow() + 1 >= to.getRow() && from.getColumn() - 1 <= to.getColumn() && from.getColumn() + 1 >= to.getColumn();
         
+        return super.legalMove(from, to, board) && kingMove;
     }
 
 }

@@ -43,7 +43,11 @@ public class Chess {
             if (captured.getClass() == King.class) {
                 this.continues = false;
             }
-            
+            /* 
+            if (captured.getClass() == Pawn.class && to.getRow() == 7) {
+                TODO 
+            }
+            */
             board.setPiece(moving, to);
             board.setPiece(null, from);
             player.changeTurn();

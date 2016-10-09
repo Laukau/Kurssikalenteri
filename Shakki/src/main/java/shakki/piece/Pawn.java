@@ -33,12 +33,12 @@ public class Pawn extends Piece {
             firstMove = false;
             return true;
         } else if (firstMove && (from.getRow() + 2 * direction == to.getRow() && from.getColumn() == to.getColumn())) { //Can move two squares forward with first move
-            firstMove = false;
-            return true;
-        } else {
-            return false;
+            if(board.getPiece(new Square(from.getColumn(), from.getRow() + direction)) != null) {
+                firstMove = false;
+                return true;
+            }
         }
-
+        return false;
     }
 
     public boolean legalNormalMove(Square from, Square to, ChessBoard board) {

@@ -14,11 +14,10 @@ public class Rook extends Piece {
 
     @Override
     public boolean legalMove(Square from, Square to, ChessBoard board) {
-        if (!super.legalMove(from, to, board) || super.pieceBetweenSameColumnOrRow(from, to, board)) {
-            return false;
-        }
-        return from.getRow() == to.getRow() || from.getColumn() == to.getColumn();
-
+        boolean possibleMove = super.legalMove(from, to, board) && !super.pieceBetweenSameColumnOrRow(from, to, board);
+        boolean rookMove = from.getRow() == to.getRow() || from.getColumn() == to.getColumn();
+        
+        return possibleMove && rookMove;
     }
 
 }

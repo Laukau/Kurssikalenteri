@@ -15,7 +15,9 @@ public class Bishop extends Piece {
 
     @Override
     public boolean legalMove(Square from, Square to, ChessBoard board) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean possibleMove = super.legalMove(from, to, board) && !super.pieceBetweenDiagonally(from, to, board);
+        boolean bishopMove = Math.abs(from.getRow()-to.getRow()) == Math.abs(from.getColumn() - to.getColumn());
+        
+        return possibleMove && bishopMove;
     }
-
 }
