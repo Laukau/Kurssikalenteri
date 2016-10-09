@@ -50,34 +50,36 @@ public abstract class Piece {
     public boolean pieceBetweenSameColumnOrRow(Square from, Square to, ChessBoard board) {
         if (from.getColumn() == to.getColumn()) {
             if (from.getRow() < to.getRow()) {
-                for (int i = from.getRow(); i < to.getRow(); i++) {
-                    if (board.getPiece(new Square(i, from.getColumn())) != null) {
-                        return true;
-                    }
-                }
+                pieceBetweenColumnHelper(from.getRow(), to.getRow(), from.getColumn(), board);
             } else {
-                for (int i = to.getRow(); i < from.getRow(); i++) {
-                    if (board.getPiece(new Square(i, from.getColumn())) != null) {
-                        return true;
-                    }
-                }
+                pieceBetweenColumnHelper(to.getRow(), from.getRow(), from.getColumn(), board);
             }
         } else if (from.getRow() == to.getRow()) {
             if (from.getColumn() < to.getColumn()) {
-                for (int i = from.getColumn(); i < to.getColumn(); i++) {
-                    if (board.getPiece(new Square(from.getRow(), i)) != null) {
-                        return true;
-                    }
-                }
+                pieceBetweenRowHelper(from.getColumn(), to.getColumn(), to.getRow(), board);
             } else {
-                for (int i = to.getColumn(); i < from.getColumn(); i++) {
-                    if (board.getPiece(new Square(from.getRow(), i)) != null) {
-                        return true;
-                    }
-                }
+                pieceBetweenRowHelper(to.getColumn(), from.getColumn(), to.getRow(), board);
             }
         }
 
+        return false;
+    }
+    
+    public boolean pieceBetweenColumnHelper(int from, int to, int col, ChessBoard board) {
+        for (int i = from; i < to; i++) {
+            if (board.getPiece(new Square(i, col)) != null) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean pieceBetweenRowHelper(int from, int to, int row, ChessBoard board) {
+        for (int i = from; i < to; i++) {
+            if (board.getPiece(new Square(row, i)) != null) {
+                return true;
+            }
+        }
         return false;
     }
 
