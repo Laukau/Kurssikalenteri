@@ -13,4 +13,4 @@ Päivä | Tunnit | Kuvaus
 6.10.2016 | 2h | Käyttöliittymien kertaamista
 7.10.2016 | 8h | Sotilaan liikkumislogiikan lisääminen, JavaDocin generoiminen, 2 sekvenssikaavion piirtäminen, uuden checkstyle-raportin luominen (tosin linkitti vanhan), pelilaudan korjailuyrityksiä (ei pystynyt luomaan pit-raporttia)
 8.10.2016 | 1h | Kuningattaren ja lähetin liikkumislogiikan lisääminen ja JavaDoc-virheiden korjaaminen
-9.10.2016 |    | Toinen koodikatselmointi
+9.10.2016 | 2h   | Toinen koodikatselmointi
