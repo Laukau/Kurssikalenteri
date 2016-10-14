@@ -9,7 +9,11 @@ import shakki.game.Square;
 public abstract class Piece {
 
     private final Color color;
-
+    
+    /**
+     * Constructor sets the color.
+     * @param color The color of the piece
+     */
     public Piece(Color color) {
         this.color = color;
     }
@@ -44,9 +48,8 @@ public abstract class Piece {
      * @param to Square to which the piece is tried to move
      * @param board Current chess board
      *
-     * @return True if there is a piece between and false otherwise
+     * @return true if there is a piece between and false otherwise
      */
-
     public boolean pieceBetweenSameColumnOrRow(Square from, Square to, ChessBoard board) {
         if (from.getColumn() == to.getColumn()) {
             if (from.getRow() < to.getRow()) {
@@ -64,8 +67,8 @@ public abstract class Piece {
 
         return false;
     }
-    
-    public boolean pieceBetweenColumnHelper(int from, int to, int col, ChessBoard board) {
+
+    private boolean pieceBetweenColumnHelper(int from, int to, int col, ChessBoard board) {
         for (int i = from + 1; i < to; i++) {
             if (board.getPiece(new Square(col, i)) != null) {
                 return true;
@@ -73,8 +76,8 @@ public abstract class Piece {
         }
         return false;
     }
-    
-    public boolean pieceBetweenRowHelper(int from, int to, int row, ChessBoard board) {
+
+    private boolean pieceBetweenRowHelper(int from, int to, int row, ChessBoard board) {
         for (int i = from + 1; i < to; i++) {
             if (board.getPiece(new Square(i, row)) != null) {
                 return true;
@@ -111,11 +114,11 @@ public abstract class Piece {
         }
         return false;
     }
-    
-    public boolean pieceBetweenDiagonallyHelper(int fromX, int toX, int fromY, int toY, ChessBoard board) {
+
+    private boolean pieceBetweenDiagonallyHelper(int fromX, int toX, int fromY, int toY, ChessBoard board) {
         for (int i = fromX + 1; i < toX; i++) {
             for (int j = fromY + 1; j < toY; j++) {
-                if (board.getPiece(new Square(i, j)) != null){ 
+                if (board.getPiece(new Square(i, j)) != null) {
                     return true;
                 }
             }

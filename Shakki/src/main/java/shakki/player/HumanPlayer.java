@@ -11,7 +11,10 @@ import shakki.piece.Piece;
 public class HumanPlayer implements Player {
 
     private boolean whitePlayer;
-
+    
+    /**
+     * Constructor sets the first turn to the white player.
+     */
     public HumanPlayer() {
         this.whitePlayer = true;
     }

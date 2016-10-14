@@ -6,4 +6,7 @@
 
 <suppressions>
     <suppress files="shakki.game.Main.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="shakki.gui.MouseListener.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="shakki.gui.Painter.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="shakki.gui.UserInterface.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

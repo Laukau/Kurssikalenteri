@@ -1,5 +1,5 @@
 /*
- * Provides the square on the board.
+ * Provides the squares of the board.
  */
 package shakki.game;
 
@@ -8,9 +8,15 @@ public class Square {
     private int x;
     private int y;
     
+    /**
+     * Constructor sets the coordinates of a square.
+     * @param x The column
+     * @param y The row
+     */
     public Square(int x, int y) {
         this.x = x;
         this.y = y;
+        // TODO both have to be between 0 and 7
     }
     
     public int getRow() {

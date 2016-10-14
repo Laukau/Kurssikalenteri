@@ -7,7 +7,11 @@ import shakki.game.ChessBoard;
 import shakki.game.Square;
 
 public class Rook extends Piece {
-
+    
+    /**
+     * Constructor sets the color.
+     * @param color Color of the rook
+     */
     public Rook(Color color) {
         super(color);
     }

@@ -62,15 +62,15 @@ public class PawnTest {
     }
     
     @Test
-    public void canCapture() {
+    public void capturesRight() {
         Square sqr1 = new Square(4,5);
-        Square sqr2 = new Square(3,3);
+        Square sqr2 = new Square(3,2);
         
         board.setPiece(new Pawn(WHITE), sqr1);
         board.setPiece(new Pawn(BLACK), sqr2);
         
-        pawn2.legalNormalMove(new Square(4,6), new Square(5,5), board);
-        pawn1.legalNormalMove(new Square(3,2), new Square(2,3), board);
+        assertTrue(pawn2.legalMove(new Square(4,6), new Square(5,5), board));
+        assertTrue(pawn1.legalMove(new Square(3,1), new Square(4,2), board));
         assertNull(board.getPiece(sqr1));
         assertNull(board.getPiece(sqr2));
     }

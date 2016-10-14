@@ -7,9 +7,11 @@ import shakki.game.ChessBoard;
 import shakki.game.Square;
 
 public class King extends Piece {
-
-    private boolean alive;
-
+    
+    /**
+     * Constructor sets the color.
+     * @param color The color of the king
+     */
     public King(Color color) {
         super(color);
     }

@@ -1,5 +1,5 @@
 /**
- * Class provides the actual game logic.
+ * Class provides the game logic.
  */
 package shakki.game;
 
@@ -16,11 +16,14 @@ public class Chess {
 
     private boolean continues;
     private ChessBoard board;
-    private HumanPlayer player;
+    private Player player;
     private boolean check;
     private boolean enPassantPossible;
     private boolean castlingPossible;
 
+    /**
+     * Constructor sets the board, the players and the initial values of some game situations.
+     */
     public Chess() {
         this.continues = true;
         this.board = new ChessBoard();
@@ -29,7 +32,10 @@ public class Chess {
         this.castlingPossible = false;
         this.check = false;
     }
-
+    
+    /**
+     * Controls the proceeding of the game.
+     */
     public void play() {
         
     }
@@ -60,13 +66,16 @@ public class Chess {
         }
     }
     
+    /**
+     * Checks if it is check.
+     * @return true if the king is in check and false otherwise
+     */
     public boolean check() {
         return this.check;
     }
     
     /**
      * Method checks if it is checkmate.
-     * 
      * @return true if the game is over and false if the game continues
      */
     public boolean checkmate() {
