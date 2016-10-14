@@ -25,6 +25,12 @@ Pelin tavoite on saattaa vastustajan kuningas shakkimattiin eli tilanteeseen, jo
 
 ![luokkakaavio](http://yuml.me/9ad82764 "Määrittelyvaiheen luokkakaavio")
 
+**Rakennekuvaus:**
+Luokassa Chess sijaitsee varsinainen pelin etenemiseen liittyvä logiikka, joten se tuntee pelilaudan (ChessBoard) sekä pelaajat Player-rajapinnan kautta. Lisäksi se pitää kirjaa erityistilanteista. Käyttöliittymä käyttää vain tätä sovellusluokkaa. 
+
+Pelilauta puolestaan tietää pelissä mukana olevat nappulat sekä niiden sijainnit laudalla (Square). Kaikki nappulat toteuttavat abstraktin luokan Piece, jossa on määritelty niiden yleinen liikkumislogiikka. Jokaisen nappulan omassa luokassa on sitten tarkennettu liikkumissääntöjä nappulan erityispiirteillä. Jokaisella nappulalla on myös väri, joka voi olla musta tai valkoinen. Varsinaiset siirrot tehdään Chess-luokassa, jossa myös tarkistetaan, ettei pelajaa lyö omia nappuloitaan tai liikuta toisen pelaajan nappuloita.
+
+
 ![sekvenssikaavio](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgTGFpbGxpc2VuIHNpaXJyb24gdGVrZW1pbmVuCgpDaGVzcy0-Qm9hcmQ6IGdldFBpZWNlKGZyb20pCgARBSAtLT4gACIFOiBtb3ZpbmcAHgUAIhh0bwAlE2NhcHR1cmVkADQGAG0IAGYFOiBsZWdhbE1vdgBwBiwgdG8sIGJvYXJkKQoAgQgFLS0-AHgHdHJ1AG8JADYHZ2V0Q29sb3IoABwRABIFAGIJbGF5ZXIAgTkIT3duAIFhBgCBRQspCgAeBgBkCmZhbHMAgSMKAIIbB3MAghoIAIIACywgdG8pABAYbnVsbCwgAIJKBgB-D2NoYW5nZVR1cm4oKQoK&s=napkin "Laillisen siirron tekeminen")
 
 ![sekvenssikaavio](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgTGFpdHRvbWFuIHNpaXJyb24geXJpdHTDpG1pbmVuCgpDaGVzcy0-Qm9hcmQ6IGdldFBpZWNlKGZyb20pCgARBSAtLT4gACIFOiBtb3ZpbmcAHgUAIhh0bwAlE2NhcHR1cmVkADQGAG0IAGYFOiBsZWdhbE1vdgBwBiwgdG8sIGJvYXJkKQoAgQgFLS0-AHgHZmFscwBwCVNjcmVlbjogVmlyaGVpbG1vaXR1cwCBXQllcMOkb25uaXN0dW1pc2VzdGEKCg&s=napkin "Laittoman siirron yrittäminen")
