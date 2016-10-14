@@ -10,4 +10,6 @@ Pelissä kaksi pelaajaa siirtää vuorotellen omia nappuloitaan shakkilaudalla p
 
 
 
-[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Laukau/Shakkipeli/blob/master/dokumentaatio/checkstyle-raportti/checkstyle-report.html)
+[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Laukau/Shakkipeli/blob/master/Dokumentaatio/checkstyle.html)
+
+[pit-raportti](https://htmlpreview.github.io/?https://github.com/Laukau/Shakkipeli/blob/master/dokumentaatio/pit-raportti/index.html)
