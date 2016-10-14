@@ -15,4 +15,4 @@ Päivä | Tunnit | Kuvaus
 8.10.2016 | 1h | Kuningattaren ja lähetin liikkumislogiikan lisääminen ja JavaDoc-virheiden korjaaminen
 9.10.2016 | 2h   | Toinen koodikatselmointi
 13.10.2016 | 2h | Käyttöliittymän aloittaminen
-14.10.2016 |  | Testien lisääminen, checkstyle-virheiden korjaaminen
+14.10.2016 | 9h | Testien lisääminen, checkstyle-virheiden korjaaminen/JavaDocin täydentäminen, rakennekuvauksen ja käyttöohjeiden lisääminen, jar-tiedoston luominen, uusien checkstyle- ja pit-raporttien generoiminen
