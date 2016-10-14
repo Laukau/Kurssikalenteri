@@ -33,11 +33,11 @@ public class ChessBoard {
                     new King(BLACK), new Bishop(BLACK), new Knight(BLACK), new Rook(BLACK)}};
     }
     
-    public Piece getPiece(Square pos) {
-        return board[pos.getRow()][pos.getColumn()];
+    public Piece getPiece(Square square) {
+        return board[square.getRow()][square.getColumn()];
     }
     
-    public void setPiece(Piece piece, Square pos) {
-        board[pos.getRow()][pos.getColumn()] = piece;
+    public void setPiece(Piece piece, Square square) {
+        board[square.getRow()][square.getColumn()] = piece;
     }
 }

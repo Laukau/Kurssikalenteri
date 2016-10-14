@@ -17,12 +17,17 @@ public class Chess {
     private boolean continues;
     private ChessBoard board;
     private HumanPlayer player;
+    private boolean check;
+    private boolean enPassantPossible;
+    private boolean castlingPossible;
 
     public Chess() {
         this.continues = true;
         this.board = new ChessBoard();
         this.player = new HumanPlayer();
-
+        this.enPassantPossible = false;
+        this.castlingPossible = false;
+        this.check = false;
     }
 
     public void play() {
@@ -55,6 +60,10 @@ public class Chess {
         }
     }
     
+    public boolean check() {
+        return this.check;
+    }
+    
     /**
      * Method checks if it is checkmate.
      * 
@@ -63,4 +72,5 @@ public class Chess {
     public boolean checkmate() {
         return !this.continues;
     }
+    
 }

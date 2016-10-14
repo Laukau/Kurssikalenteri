@@ -5,10 +5,7 @@
  */
 package shakki.piece;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import shakki.game.ChessBoard;
@@ -41,12 +38,12 @@ public class PawnTest {
     
     @Test
     public void cannotMoveBackwards() {
-        Square pos1 = new Square(2,3);
+        Square pos1 = new Square(2,4);
         Square pos2 = new Square(5,3);
         board.setPiece(pawn1, pos1);
         board.setPiece(pawn2, pos2);
         
-        assertFalse(pawn1.legalMove(pos1, new Square(2,2), board));
+        assertFalse(pawn1.legalMove(pos1, new Square(2,3), board));
         assertFalse(pawn2.legalMove(pos2, new Square(5,4), board));
     }
     
@@ -62,5 +59,19 @@ public class PawnTest {
         pawn1.legalMove(new Square(7,1), to, board);
         board.setPiece(pawn1, to);
         assertFalse(pawn1.legalMove(to, new Square(7,4), board));
+    }
+    
+    @Test
+    public void canCapture() {
+        Square sqr1 = new Square(4,5);
+        Square sqr2 = new Square(3,3);
+        
+        board.setPiece(new Pawn(WHITE), sqr1);
+        board.setPiece(new Pawn(BLACK), sqr2);
+        
+        pawn2.legalNormalMove(new Square(4,6), new Square(5,5), board);
+        pawn1.legalNormalMove(new Square(3,2), new Square(2,3), board);
+        assertNull(board.getPiece(sqr1));
+        assertNull(board.getPiece(sqr2));
     }
 }

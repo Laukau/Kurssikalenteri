@@ -32,8 +32,8 @@ public class Pawn extends Piece {
         if (from.getRow() + direction == to.getRow() && legalNormalMove(from, to, board)) {
             firstMove = false;
             return true;
-        } else if (firstMove && (from.getRow() + 2 * direction == to.getRow() && from.getColumn() == to.getColumn())) { //Can move two squares forward with first move
-            if(board.getPiece(new Square(from.getColumn(), from.getRow() + direction)) != null) { //The next square has to be empty
+        } else if (firstMove && (from.getRow() + (2 * direction) == to.getRow() && from.getColumn() == to.getColumn())) { //Can move two squares forward with first move
+            if(board.getPiece(new Square(from.getColumn(), from.getRow() + direction)) == null) { //The next square has to be empty
                 firstMove = false;
                 return true;
             }
@@ -42,11 +42,11 @@ public class Pawn extends Piece {
     }
 
     public boolean legalNormalMove(Square from, Square to, ChessBoard board) {
-        Square oppositePos = new Square(from.getColumn(), from.getRow() + direction);
-        Piece oppositePiece = board.getPiece(oppositePos);
+        Square oppositeSquare = new Square(from.getColumn(), from.getRow() + direction);
+        Piece oppositePiece = board.getPiece(oppositeSquare);
 
         if (oppositePiece != null && (from.getColumn() - 1 == to.getColumn() || from.getColumn() + 1 == to.getColumn())) {
-            board.setPiece(null, oppositePos);
+            board.setPiece(null, oppositeSquare);
             return true;
         } else {
             return from.getColumn() == to.getColumn();
