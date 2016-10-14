@@ -1,0 +1,18 @@
+Shakki on kaksinpeli, jossa toinen pelaa valkeilla ja toinen mustilla nappuloilla. Valkeilla pelaava pelaaja aloittaa pelin. Nappuloita voi siirtää klikkaamalla ensin siirrettävää nappulaa ja sen jälkeen ruutua, johon se halutaan siirtää. Kumpikin pelaaja siirtää vuorollaan yhtä nappulaa. Kun siirto on laillinen, nappula siirtyy ja vuoro vaihtuu toiselle pelaajalle.
+Nappulan voi liikkumissääntöjä noudattaen siirtää joko tyhjään ruutuun tai ruutuun, jossa on vastustajan nappula. Kun nappula siirretään ruutuun, jossa on vastustajan nappula, tulee vastustajan nappula lyödyksi ja se poistetaan laudalta. Nappulat eivät voi hyppiä toisten yli ratsua lukuun ottamatta.
+Se pelaaja, joka ensin saa toisen pelaajan shakkimattiin eli tilanteeseen, jossa kuninkaan uhkauksen torjumiseksi ei ole laillista siirtoa, voittaa. Tilannetta, jossa kuningasta uhataan, mutta tilanne ei ole matti, kutsutaan shakiksi. Pelaaja voi myös luovuttaa pelin.
+
+Jokaisella nappulalla on omat liikkumissääntönsä:
+
+**Sotilas** liikkuu suoraan eteenpäin sen edessä samalla linjalla olevaan tyhjään ruutuun. Alkuasemastaan sitä voi kuitenkin halutessaan siirtää kaksi ruutua kerrallaan, jos nämä molemmat ruudut ovat tyhjiä.
+ Muista nappuloista poiketen sotilas ei lyö etuviistoon. Jos sotilas onnistuu kulkemaan vastakkaiselle laidalle asti, se korotetaan vapaavalintaiseksi, omanväriseksi kuningattareksi, torniksi, lähetiksi tai ratsuksi.
+ 
+ **Lähetti**  liikkuu viistoon mihin tahansa suuntaan sen verran kuin pelaaja haluaa, muttei kuitenkaan hyppää toisten nappuloiden yli.
+ 
+ **Ratsu** liikkuu ensin kaksi ruutua suoraan (ylös, alas, vasemmalle tai oikealle) ja sitten yhden ruudun jommallekummalle sivulle. Se voi hypätä myös toisten nappuloiden yli.
+ 
+ **Torni** liikkuu suoraan mihin tahansa suuntaan sen verran kuin pelaaja haluaa, muttei kuitenkaan hyppää toisten nappuloiden yli.
+ 
+ **Kuningatar** voi liikkua joko viistoittain tai suoraan sen verran kuin pelaaja haluaa, muttei molemmilla tavoilla samalla siirrolla. Se ei voi myöskään hypätä toisten nappuloiden yli.
+ 
+ **Kuningas** voi liikkua yhden ruudun mihin tahansa suuntaan.
