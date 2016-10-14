@@ -32,6 +32,7 @@ public class Chess {
     /**
      * If possible, moves the piece and changes the turn.
      * Also checks some game situations.
+     * 
      * @param from The initial position
      * @param to The destination
      */

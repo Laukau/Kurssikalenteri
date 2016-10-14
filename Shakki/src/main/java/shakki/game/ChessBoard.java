@@ -9,6 +9,9 @@ import shakki.piece.Knight;
 import shakki.piece.Bishop;
 import static shakki.piece.Color.BLACK;
 import static shakki.piece.Color.WHITE;
+import shakki.piece.King;
+import shakki.piece.Pawn;
+import shakki.piece.Queen;
 
 
 public class ChessBoard {
@@ -16,7 +19,7 @@ public class ChessBoard {
     
     
     public ChessBoard() {
-        this.board = {{new Rook(WHITE), new Knight(WHITE), new Bishop(WHITE), new Queen(WHITE), 
+        this.board = new Piece[][]{{new Rook(WHITE), new Knight(WHITE), new Bishop(WHITE), new Queen(WHITE), 
                     new King(WHITE), new Bishop(WHITE), new Knight(WHITE), new Rook(WHITE)},
                     {new Pawn(WHITE), new Pawn(WHITE), new Pawn(WHITE), new Pawn(WHITE), 
                     new Pawn(WHITE), new Pawn(WHITE), new Pawn(WHITE), new Pawn(WHITE)},

@@ -91,7 +91,7 @@ public abstract class Piece {
      * @param to Square to which the piece is tried to move
      * @param board Current chess board
      *
-     * @return True if there is a piece between and false otherwise
+     * @return true if there is a piece between and false otherwise
      */
     public boolean pieceBetweenDiagonally(Square from, Square to, ChessBoard board) {
         if (Math.abs(from.getRow() - to.getRow()) == Math.abs(from.getColumn() - to.getColumn())) {
