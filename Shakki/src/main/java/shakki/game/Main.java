@@ -5,6 +5,9 @@
  */
 package shakki.game;
 
+import javax.swing.SwingUtilities;
+import shakki.gui.UserInterface;
+
 
 
 /**
@@ -17,7 +20,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Chess chess = new Chess();
         
+        UserInterface userInterface = new UserInterface(chess);
+        SwingUtilities.invokeLater(userInterface);
+        
+        chess.play();
     }
 
 }

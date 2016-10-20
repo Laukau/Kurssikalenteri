@@ -8,6 +8,7 @@ package shakki.gui;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 import shakki.game.Chess;
 
 /**
@@ -15,16 +16,17 @@ import shakki.game.Chess;
  * @author Laura
  */
 public class MouseListener implements ActionListener {
-    private Chess chess;
-    private Component component;
+    private JLabel from;
+    private JLabel to;
     
-    public MouseListener(Chess chess, Component component) {
-        this.chess = chess;
-        this.component = component;
+    public MouseListener(JLabel from, JLabel to) {
+        this.from = from;
+        this.to = to;
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.to.setText(this.from.getText());
+        this.from.setText("");
     }
     
 }
