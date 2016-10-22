@@ -18,4 +18,4 @@ Päivä | Tunnit | Kuvaus
 14.10.2016 | 9h | Testien lisääminen, checkstyle-virheiden korjaaminen/JavaDocin täydentäminen, rakennekuvauksen ja käyttöohjeiden lisääminen, jar-tiedoston luominen, uusien checkstyle- ja pit-raporttien generoiminen
 20.10.2016 | 4h | Käyttöliittymän grafiikan lisääminen
 21.10.2016 |6,5h| Käyttöliittymän grafiikka loppuun sekä käyttöliittymän yhdistäminen sovelluslogiikkaan
-22.10.2016 |  |
+22.10.2016 | 10h | Graafisen käyttöliittymän päivittymättömyyden korjausyrityksiä ja lopulta tekstikäyttöliittymän lisääminen. Loppudokumentaation tarkistus
