@@ -142,27 +142,25 @@ public class UserInterface implements Runnable {
         System.out.println("GuiPiece set");
     }
     public void repaintBoard() {
-        //JPanel newBoard = new JPanel(new GridLayout(0,9));
+        JPanel newBoard = new JPanel(new GridLayout(0,9));
         for(int i = 0; i < 8; i++) {
-            this.board.add(new JLabel("" + (i + 1)));
+            newBoard.add(new JLabel("" + (i + 1)));
             for (int j = 0; j < 8; j++) {
-                this.board.add(this.squares[i][j]);
+                newBoard.add(this.squares[i][j]);
             }
         }
         // add the column letters
-        this.board.add(new JLabel(""));
+        newBoard.add(new JLabel(""));
         String[] columns = new String[] {"A", "B", "C", "D", "E", "F", "G", "H"};
         for(int i = 0; i < 8; i++) {
-            this.board.add(new JLabel(columns[i]));
+            newBoard.add(new JLabel(columns[i]));
         }
         
         System.out.println("repaint");
-        //this.board = newBoard;
+        this.board = newBoard;
         this.frame.getContentPane().add(this.board);
         //this.board.repaint();
         
-        //this.tools = createToolBar();
-        //this.tools.repaint();
         this.frame.getContentPane().validate();
         this.frame.getContentPane().repaint();
     }    
