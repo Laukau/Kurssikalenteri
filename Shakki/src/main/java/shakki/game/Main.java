@@ -25,7 +25,7 @@ public class Main {
         UserInterface userInterface = new UserInterface(chess);
         SwingUtilities.invokeLater(userInterface);
         
-        chess.play();
+        //chess.play();
     }
 
 }

@@ -4,6 +4,7 @@
 package shakki.game;
 
 
+import shakki.gui.GuiPiece;
 import shakki.piece.King;
 import shakki.piece.Pawn;
 import shakki.piece.Piece;
@@ -17,9 +18,12 @@ public class Chess {
     private boolean continues;
     private ChessBoard board;
     private Player player;
+    private boolean firstSquare;
     private boolean check;
     private boolean enPassantPossible;
     private boolean castlingPossible;
+    private GuiPiece from;
+    private GuiPiece to;
 
     /**
      * Constructor sets the board, the players and the initial values of some game situations.
@@ -31,14 +35,19 @@ public class Chess {
         this.enPassantPossible = false;
         this.castlingPossible = false;
         this.check = false;
+        this.firstSquare = true;
+        
     }
     
     /**
      * Controls the proceeding of the game.
      */
     public void play() {
-        
+        while(this.continues) {
+            
+        }
     }
+    
     
     /**
      * If possible, moves the piece and changes the turn.
@@ -62,6 +71,7 @@ public class Chess {
             */
             board.setPiece(moving, to);
             board.setPiece(null, from);
+            this.to.move(this.from);
             player.changeTurn();
         }
     }
@@ -81,5 +91,22 @@ public class Chess {
     public boolean checkmate() {
         return !this.continues;
     }
-    
+    public boolean firstSquareClicked(){
+        return this.firstSquare;
+    }
+    public void setFirstSquareClicked(boolean value) {
+        this.firstSquare = value;
+    }
+    public void setFromGuiPiece(GuiPiece from) {
+        this.from = from;
+    }
+    public void setToGuiPiece(GuiPiece to) {
+        this.to = to;
+    }
+    public GuiPiece getFromGuiPiece() {
+        return this.from;
+    }
+    public GuiPiece getToGuiPiece() {
+        return this.to;
+    }
 }

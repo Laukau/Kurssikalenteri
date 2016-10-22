@@ -33,7 +33,7 @@ public class UserInterface implements Runnable {
     
     public UserInterface(Chess chess) {
         this.chess = chess;
-        this.message = new JLabel("Press 'New' to start a new game");
+        this.message = new JLabel("");
     }
     @Override
     public void run() {
@@ -66,7 +66,7 @@ public class UserInterface implements Runnable {
     }
     
     private JPanel createBoard() {
-        this.board = new JPanel(new GridLayout(9,9));
+        this.board = new JPanel(new GridLayout(0,9));
         this.squares = new JButton[8][8];
         
         for (int i = 0; i < 8; i++) {
@@ -91,25 +91,29 @@ public class UserInterface implements Runnable {
             for (int j = 2; j < 6; j++) {
                 squares[j][i].add(new JLabel(""));
             }
+            for (int j = 0; j < 8; j++) {
+                squares[j][i].addActionListener(new ButtonListener(new GuiPiece(j, i, squares[j][i].getText()), this.chess));
+            }
         }
-        // add the column letters
-        String[] columns = new String[] {"", "A", "B", "C", "D", "E", "F", "G", "H"};
-        for(int i = 0; i < 8; i++) {
-            board.add(new JLabel(columns[i]), SwingConstants.CENTER);
-        }
+        
         // add the row numbers and the squares
         for(int i = 0; i < 8; i++) {
-            board.add(new JLabel("" + (i + 1)), SwingConstants.CENTER);
+            board.add(new JLabel("" + (i + 1)));
             for (int j = 0; j < 8; j++) {
                 board.add(squares[i][j]);
             }
+        }
+        // add the column letters
+        board.add(new JLabel(""));
+        String[] columns = new String[] {"A", "B", "C", "D", "E", "F", "G", "H"};
+        for(int i = 0; i < 8; i++) {
+            board.add(new JLabel(columns[i]));
         }
         return board;
     }
     public void addPiece(String s, Container c, Color color) {
         JLabel label = new JLabel(s);
         label.setFont(new Font("Sans-Serif", Font.PLAIN, 30));
-        label.setOpaque(true);
         label.setForeground(color);
         if(c.getBackground() == Color.BLACK) {
             label.setBackground(Color.BLACK);
