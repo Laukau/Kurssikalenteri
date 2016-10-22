@@ -7,6 +7,9 @@ package shakki.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import shakki.game.Chess;
 
 /**
@@ -16,10 +19,12 @@ import shakki.game.Chess;
 public class ButtonListener implements ActionListener{
     private Chess chess;
     private GuiPiece piece;
+    private JPanel board;
     
-    public ButtonListener(GuiPiece piece, Chess chess) {
+    public ButtonListener(GuiPiece piece, Chess chess, JPanel board) {
         this.piece = piece;
         this.chess = chess;
+        this.board = board;
     }
     
     @Override
@@ -27,13 +32,18 @@ public class ButtonListener implements ActionListener{
         if(chess.checkmate()) {
             return;
         }
+        this.piece.setButton((JButton) ae.getSource());
         if(chess.firstSquareClicked()) {
             chess.setFromGuiPiece(this.piece);
             chess.setFirstSquareClicked(false);
+            System.out.println("Eka GuiPiece lisätty");
         } else {
             chess.setToGuiPiece(this.piece);
             chess.setFirstSquareClicked(true);
+            System.out.println("Toka GuiPiece lisätty");
             chess.move(chess.getFromGuiPiece().convertCoordinatesToSquare(), chess.getToGuiPiece().convertCoordinatesToSquare());
+            
+            
         }
     }
     

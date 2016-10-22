@@ -7,10 +7,12 @@ package shakki.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Label;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,10 +32,11 @@ public class UserInterface implements Runnable {
     private JLabel message;
     private JPanel board;
     private JButton squares[][];
+    private JToolBar tools;
     
     public UserInterface(Chess chess) {
         this.chess = chess;
-        this.message = new JLabel("");
+        this.message = new JLabel("White player starts");
     }
     @Override
     public void run() {
@@ -56,7 +59,7 @@ public class UserInterface implements Runnable {
     }
     
     private JToolBar createToolBar() {
-        JToolBar tools = new JToolBar();
+        this.tools = new JToolBar();
         JButton newGame = new JButton("New");
         tools.add(newGame);
         tools.addSeparator();
@@ -67,6 +70,25 @@ public class UserInterface implements Runnable {
     
     private JPanel createBoard() {
         this.board = new JPanel(new GridLayout(0,9));
+        createSquares();
+        
+        // add the row numbers and the squares
+        for(int i = 0; i < 8; i++) {
+            board.add(new JLabel("" + (i + 1)));
+            for (int j = 0; j < 8; j++) {
+                board.add(squares[i][j]);
+            }
+        }
+        // add the column letters
+        board.add(new JLabel(""));
+        String[] columns = new String[] {"A", "B", "C", "D", "E", "F", "G", "H"};
+        for(int i = 0; i < 8; i++) {
+            board.add(new JLabel(columns[i]));
+        }
+        return board;
+    }
+    
+    private void createSquares() {
         this.squares = new JButton[8][8];
         
         for (int i = 0; i < 8; i++) {
@@ -92,25 +114,11 @@ public class UserInterface implements Runnable {
                 squares[j][i].add(new JLabel(""));
             }
             for (int j = 0; j < 8; j++) {
-                squares[j][i].addActionListener(new ButtonListener(new GuiPiece(j, i, squares[j][i].getText()), this.chess));
+                squares[j][i].addActionListener(new ButtonListener(new GuiPiece(j, i, squares[j][i].getText()), this.chess, this.board));
             }
         }
-        
-        // add the row numbers and the squares
-        for(int i = 0; i < 8; i++) {
-            board.add(new JLabel("" + (i + 1)));
-            for (int j = 0; j < 8; j++) {
-                board.add(squares[i][j]);
-            }
-        }
-        // add the column letters
-        board.add(new JLabel(""));
-        String[] columns = new String[] {"A", "B", "C", "D", "E", "F", "G", "H"};
-        for(int i = 0; i < 8; i++) {
-            board.add(new JLabel(columns[i]));
-        }
-        return board;
     }
+
     public void addPiece(String s, Container c, Color color) {
         JLabel label = new JLabel(s);
         label.setFont(new Font("Sans-Serif", Font.PLAIN, 30));
@@ -125,4 +133,37 @@ public class UserInterface implements Runnable {
     public JFrame getFrame() {
         return frame;
     }
+    public void setMessage(String newMessage) {
+        this.message = new JLabel(newMessage);
+    }
+    public void setPiece(GuiPiece fromPiece, GuiPiece toPiece) {
+        this.squares[fromPiece.getY()][fromPiece.getX()].add(new Label(""));
+        this.squares[toPiece.getY()][toPiece.getX()].add(fromPiece.getLabel());
+        System.out.println("GuiPiece set");
+    }
+    public void repaintBoard() {
+        //JPanel newBoard = new JPanel(new GridLayout(0,9));
+        for(int i = 0; i < 8; i++) {
+            this.board.add(new JLabel("" + (i + 1)));
+            for (int j = 0; j < 8; j++) {
+                this.board.add(this.squares[i][j]);
+            }
+        }
+        // add the column letters
+        this.board.add(new JLabel(""));
+        String[] columns = new String[] {"A", "B", "C", "D", "E", "F", "G", "H"};
+        for(int i = 0; i < 8; i++) {
+            this.board.add(new JLabel(columns[i]));
+        }
+        
+        System.out.println("repaint");
+        //this.board = newBoard;
+        this.frame.getContentPane().add(this.board);
+        //this.board.repaint();
+        
+        //this.tools = createToolBar();
+        //this.tools.repaint();
+        this.frame.getContentPane().validate();
+        this.frame.getContentPane().repaint();
+    }    
 }

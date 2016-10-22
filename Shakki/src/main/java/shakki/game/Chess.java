@@ -4,7 +4,9 @@
 package shakki.game;
 
 
+import javax.swing.SwingUtilities;
 import shakki.gui.GuiPiece;
+import shakki.gui.UserInterface;
 import shakki.piece.King;
 import shakki.piece.Pawn;
 import shakki.piece.Piece;
@@ -24,6 +26,7 @@ public class Chess {
     private boolean castlingPossible;
     private GuiPiece from;
     private GuiPiece to;
+    private UserInterface ui;
 
     /**
      * Constructor sets the board, the players and the initial values of some game situations.
@@ -36,16 +39,14 @@ public class Chess {
         this.castlingPossible = false;
         this.check = false;
         this.firstSquare = true;
-        
+        this.ui = new UserInterface(this);
     }
     
     /**
      * Controls the proceeding of the game.
      */
     public void play() {
-        while(this.continues) {
-            
-        }
+        SwingUtilities.invokeLater(ui);
     }
     
     
@@ -59,20 +60,48 @@ public class Chess {
     public void move(Square from, Square to) {
         Piece moving = board.getPiece(from);
         Piece captured = board.getPiece(to);
-        
-        if (moving.legalMove(from, to, board) && (moving.getColor() != captured.getColor()) && !player.movingOwnPiece(moving)) {
-            if (captured.getClass() == King.class) {
-                this.continues = false;
+        System.out.println("move tried");
+        if(moving == null) {
+            System.out.println("moving = null");
+            return;
+        }
+        System.out.println("moving != null");
+        if (moving.legalMove(from, to, board) && !player.movingOwnPiece(moving)) {
+            System.out.println("moving");
+            if (captured != null) {
+                System.out.println("captured != null");
+                if (moving.getColor() == captured.getColor()) {
+                    return;
+                }
+                if (captured.getClass() == King.class) {
+                    this.continues = false;
+                     if(this.player.whiteTurn()) {
+                        ui.setMessage("White player won");
+                    } else {
+                        ui.setMessage("Black player won");
+                    }
+                }
+                /*
+                if (moving.getClass() == Pawn.class && to.getRow() == 7) {
+                    moving = promotePawn();
+                }
+                */
             }
-            /* 
-            if (captured.getClass() == Pawn.class && to.getRow() == 7) {
-                TODO 
-            }
-            */
+            
+            
             board.setPiece(moving, to);
             board.setPiece(null, from);
-            this.to.move(this.from);
+            System.out.println("sovellusmove");
+            ui.setPiece(this.from, this.to);
+            //this.to.move(this.from);
+            if(this.player.whiteTurn()) {
+                ui.setMessage("Black player's turn");
+            } else {
+                ui.setMessage("White player's turn");
+            }
             player.changeTurn();
+            ui.repaintBoard();
+            
         }
     }
     
@@ -91,6 +120,10 @@ public class Chess {
     public boolean checkmate() {
         return !this.continues;
     }
+    
+    /*public Piece promotePawn() {
+        
+    }*/
     public boolean firstSquareClicked(){
         return this.firstSquare;
     }

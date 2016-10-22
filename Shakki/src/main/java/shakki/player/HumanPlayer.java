@@ -32,6 +32,6 @@ public class HumanPlayer implements Player {
     
     @Override
     public boolean movingOwnPiece(Piece piece) {
-        return (whitePlayer && (piece.getColor() == WHITE)) && (!whitePlayer && (piece.getColor() == BLACK));
+        return (whitePlayer && (piece.getColor() == WHITE)) || (!whitePlayer && (piece.getColor() == BLACK));
     }
 }
