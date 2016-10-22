@@ -4,13 +4,7 @@
 
 Shakki. Toteutetaan shakkipeli, jossa kaksi pelaajaa pelaa toisiaan vastaan. 
 
-Peli muodostuu 8x8 ruudukon kokoisesta shakkilaudasta, jolla kummallakin pelaajalla on aluksi 16 pelinappulaa: 1 kuningas, 1 kuningatar, 2 lähettiä, 2 ratsua, 2 tornia ja 8 sotilasta. Jokainen näistä nappulatyypeistä liikkuu eri tavalla. Pelaajat siirtävät vuorotellen aina yhtä omaa nappulaansa, jota voi siirtää joko tyhjään ruutuun tai ruutuun, jossa on vastustajan nappula, jolloin tämä nappula tulee lyödyksi ja se poistetaan laudalta. 
-
-Pelin tavoite on saattaa vastustajan kuningas shakkimattiin eli tilanteeseen, jossa kuningas on uhattuna, eikä vastapelaajalla ole käytössään laillisia siirtoja uhkauksen, eli shakin, torjumiseksi. Peli voi lisäksi päättyä jomman kumman pelaajan luovuttamiseen tai tasapeliin. Peli päättyy tasapeliin silloin, kun 
-- siirtovuorossa olevalla pelaajalla ei ole sallittuja siirtoja, eikä kuningas ole uhattuna
-- pelaajat niin sopivat tai
-- pelaaja omalla vuorollaan vaatii tasapeliä, kun laudalla on täsmälleen sama asema vähintään kolmatta kertaa tai on pelattu 50 siirtoa ilman, että yksikään sotilas on liikkunut ja yhtään nappulaa on lyöty tai 
-- kummallakaan pelaajalla ei ole riittävästi materiaalia shakkimatin tekemiseen
+Peli muodostuu 8x8 ruudukon kokoisesta shakkilaudasta, jolla kummallakin pelaajalla on aluksi 16 pelinappulaa: 1 kuningas, 1 kuningatar, 2 lähettiä, 2 ratsua, 2 tornia ja 8 sotilasta. Jokainen näistä nappulatyypeistä liikkuu eri tavalla. Pelaajat siirtävät vuorotellen aina yhtä omaa nappulaansa, jota voi siirtää joko tyhjään ruutuun tai ruutuun, jossa on vastustajan nappula, jolloin tämä nappula tulee lyödyksi ja se poistetaan laudalta. Pelin tavoite on lyödä vastustajan kuningas
 
 **Käyttäjät:** Kaksi pelaajaa
 
@@ -18,15 +12,12 @@ Pelin tavoite on saattaa vastustajan kuningas shakkimattiin eli tilanteeseen, jo
 
 - Uuden pelin aloittaminen
 - Siirron tekeminen
-- Tasapelin ehdottaminen
-- Tasapeliin suostuminen
-- Luovuttaminen
-  - Vaatii vahvistuksen
+- Sotilaan korottaminen
 
 ![luokkakaavio](http://yuml.me/9ad82764 "Määrittelyvaiheen luokkakaavio")
 
 **Rakennekuvaus:**
-Luokassa Chess sijaitsee varsinainen pelin etenemiseen liittyvä logiikka, joten se tuntee pelilaudan (ChessBoard) sekä pelaajat Player-rajapinnan kautta. Lisäksi se pitää kirjaa erityistilanteista. Käyttöliittymä käyttää vain tätä sovellusluokkaa. 
+Luokassa Chess sijaitsee varsinainen pelin etenemiseen liittyvä logiikka, joten se tuntee pelilaudan (ChessBoard) sekä pelaajat Player-rajapinnan kautta. Lisäksi se pitää kirjaa erityistilanteista ja käyttää tekstikäyttöliittymää. 
 
 Pelilauta puolestaan tietää pelissä mukana olevat nappulat sekä niiden sijainnit laudalla (Square). Kaikki nappulat toteuttavat abstraktin luokan Piece, jossa on määritelty niiden yleinen liikkumislogiikka. Jokaisen nappulan omassa luokassa on sitten tarkennettu liikkumissääntöjä nappulan erityispiirteillä. Jokaisella nappulalla on myös väri, joka voi olla musta tai valkoinen. Varsinaiset siirrot tehdään Chess-luokassa, jossa myös tarkistetaan, ettei pelajaa lyö omia nappuloitaan tai liikuta toisen pelaajan nappuloita.
 
