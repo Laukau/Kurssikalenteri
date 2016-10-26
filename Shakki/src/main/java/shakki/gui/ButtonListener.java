@@ -32,7 +32,7 @@ public class ButtonListener implements ActionListener{
         if(chess.checkmate()) {
             return;
         }
-        /*this.piece.setButton((JButton) ae.getSource());
+        this.piece.setButton((JButton) ae.getSource());
         if(chess.firstSquareClicked()) {
             chess.setFromGuiPiece(this.piece);
             chess.setFirstSquareClicked(false);
@@ -45,7 +45,7 @@ public class ButtonListener implements ActionListener{
             
             
         }
-        */
+        
     }
     
 }

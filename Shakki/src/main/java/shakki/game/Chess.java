@@ -28,10 +28,11 @@ public class Chess {
     private boolean check;
     private boolean enPassantPossible;
     private boolean castlingPossible;
-    //private GuiPiece from;
-    //private GuiPiece to;
-    //private UserInterface ui;
-    private TextUserInterface ui;
+    
+    private GuiPiece from;
+    private GuiPiece to;
+    private UserInterface ui;
+    //private TextUserInterface ui;
 
     /**
      * Constructor sets the board, the players and the initial values of some
@@ -44,9 +45,10 @@ public class Chess {
         this.enPassantPossible = false;
         this.castlingPossible = false;
         this.check = false;
-        //this.firstSquare = true;
-        //this.ui = new UserInterface(this);
-        this.ui = new TextUserInterface();
+        
+        this.firstSquare = true;
+        this.ui = new UserInterface(this);
+        //this.ui = new TextUserInterface();
 
     }
 
@@ -54,12 +56,14 @@ public class Chess {
      * Controls the proceeding of the game.
      */
     public void play() {
-        //SwingUtilities.invokeLater(ui);
-        System.out.println("White player starts");
+        SwingUtilities.invokeLater(ui);
+        
+        /*System.out.println("White player starts");
         while (this.continues) {
             ui.drawBoard(this.board);
             move(ui.readfromSquare(), ui.readToSquare());
         }
+        */
     }
 
     /**
@@ -85,33 +89,35 @@ public class Chess {
                 if (captured.getClass() == King.class) {
                     this.continues = false;
                     System.out.println("Game over");
-                    /*if(this.player.whiteTurn()) {
+                    
+                    if(this.player.whiteTurn()) {
                      ui.setMessage("White player won");
                      } else {
                      ui.setMessage("Black player won");
-                     }*/
+                     }
+                    return;
                 }
             }
-            if (moving.getClass() == Pawn.class && to.getRow() == 7) {
+            
+            /*if (moving.getClass() == Pawn.class && to.getRow() == 7) {
                 moving = ui.promotePawn(moving.getColor());
             }
+            */
             board.setPiece(moving, to);
             board.setPiece(null, from);
-            //ui.setPiece(this.from, this.to);
-            /*if(this.player.whiteTurn()) {
-             ui.setMessage("Black player's turn");
-             } else {
-             ui.setMessage("White player's turn");
-             }*/
+            ui.setPiece(this.from, this.to);
             player.changeTurn();
-
-            //ui.repaintBoard();
+            if(this.player.whiteTurn()) {
+                ui.setMessage("White player's turn");
+                System.out.println("White player's turn");
+             } else {
+                ui.setMessage("Black player's turn");
+                System.out.println("Black player's turn");
+             }
+            
+            ui.repaintBoard();
         }
-        if (this.player.whiteTurn() == true) {
-            System.out.println("White player's turn");
-        } else {
-            System.out.println("Black player's turn");
-        }
+        
     }
 
     /**
@@ -132,10 +138,9 @@ public class Chess {
         return !this.continues;
     }
 
-    /*public Piece promotePawn() {
-        
-     }*/
-    /*public boolean firstSquareClicked(){
+    
+    
+    public boolean firstSquareClicked(){
      return this.firstSquare;
      }
      public void setFirstSquareClicked(boolean value) {
@@ -153,5 +158,5 @@ public class Chess {
      public GuiPiece getToGuiPiece() {
      return this.to;
      }
-     */
+     
 }

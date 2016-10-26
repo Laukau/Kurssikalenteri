@@ -32,7 +32,7 @@ public class GuiPiece {
     }
     
     public Square convertCoordinatesToSquare() {
-        return new Square(Math.abs(7 - this.y), this.x);
+        return new Square(Math.abs(7 - this.y), Math.abs(7 - this.x));
     }
     public int getX() {
         return this.x;
