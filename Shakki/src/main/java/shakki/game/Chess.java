@@ -49,38 +49,39 @@ public class Chess {
         Piece moving = board.getPiece(from);
         Piece captured = board.getPiece(to);
 
-        if (moving.legalMove(from, to, board) && player.movingOwnPiece(moving)) {
-            System.out.println("legal move");
-            if (captured != null) {
-                if (moving.getColor() == captured.getColor()) {
-                    System.out.println("Cannot capture own piece");
-                    return;
-                }
-                if (captured.getClass() == King.class) {
-                    this.continues = false;
-                    if (this.player.whiteTurn()) {
-                        this.message = "Game over. White player won";
-                    } else {
-                        this.message = "Game over. Black player won";
-                    }
-                    return;
-                }
-                System.out.println("Captured a piece");
-            }
-
-            if (moving.getClass() == Pawn.class && to.getRow() == 7) {
-                moving = new Queen(moving.getColor());
-            }
-
-            board.setPiece(moving, to);
-            board.setPiece(null, from);
-            player.changeTurn();
-            if (this.player.whiteTurn()) {
-                this.message = "White player's turn";
-            } else {
-                this.message = "Black player's turn";
-            }
+        if (!moving.legalMove(from, to, board) || !player.movingOwnPiece(moving)) {
+            return;
         }
+        if (captured != null) {
+            if (moving.getColor() == captured.getColor()) {
+                System.out.println("Cannot capture own piece");
+                return;
+            }
+            if (captured.getClass() == King.class) {
+                this.continues = false;
+                if (this.player.whiteTurn()) {
+                    this.message = "Game over. White player won";
+                } else {
+                    this.message = "Game over. Black player won";
+                }
+                return;
+            }
+            System.out.println("Captured a piece");
+        }
+
+        if (moving.getClass() == Pawn.class && to.getRow() == 7) {
+            moving = new Queen(moving.getColor());
+        }
+
+        board.setPiece(moving, to);
+        board.setPiece(null, from);
+        player.changeTurn();
+        if (this.player.whiteTurn()) {
+            this.message = "White player's turn";
+        } else {
+            this.message = "Black player's turn";
+        }
+
     }
 
     /**

@@ -7,7 +7,6 @@
 <suppressions>
     <suppress files="shakki.game.Main.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="shakki.gui.UserInterface.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="shakki.gui.TextUserInterface.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="shakki.gui.ButtonListener.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="shakki.gui.GuiPiece.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="shakki.gui.SquareButton.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>
