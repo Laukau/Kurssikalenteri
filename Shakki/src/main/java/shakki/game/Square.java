@@ -16,7 +16,6 @@ public class Square {
     public Square(int x, int y) {
         this.x = x;
         this.y = y;
-        // TODO both have to be between 0 and 7
     }
     
     public int getRow() {

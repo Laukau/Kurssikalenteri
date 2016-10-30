@@ -11,13 +11,16 @@ public class Pawn extends Piece {
 
     private boolean firstMove;
     private final int direction;
-    
+    private Color color;
+
     /**
      * Constructor sets the color and direction of the Pawn.
+     *
      * @param color Color of the pawn
      */
     public Pawn(Color color) {
         super(color);
+        this.color = color;
         this.firstMove = true;
 
         if (color == BLACK) {
@@ -29,7 +32,7 @@ public class Pawn extends Piece {
 
     @Override
     public boolean legalMove(Square from, Square to, ChessBoard board) {
-        if (!super.legalMove(from, to, board) || board.getPiece(to) != null) { //Pawn can move to empty square only
+        if (board.getPiece(to) != null) { //Pawn can move to empty square only
             return false;
         }
 
@@ -49,7 +52,7 @@ public class Pawn extends Piece {
         Square oppositeSquare = new Square(from.getColumn(), from.getRow() + direction);
         Piece oppositePiece = board.getPiece(oppositeSquare);
 
-        if (oppositePiece != null && (from.getColumn() - 1 == to.getColumn() || from.getColumn() + 1 == to.getColumn())) {
+        if (oppositePiece != null && (from.getColumn() - 1 == to.getColumn() || from.getColumn() + 1 == to.getColumn()) && (oppositePiece.getColor() != this.color)) {
             board.setPiece(null, oppositeSquare);
             return true;
         } else {

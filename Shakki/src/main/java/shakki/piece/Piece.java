@@ -9,9 +9,10 @@ import shakki.game.Square;
 public abstract class Piece {
 
     private final Color color;
-    
+
     /**
      * Constructor sets the color.
+     *
      * @param color The color of the piece
      */
     public Piece(Color color) {
@@ -28,11 +29,7 @@ public abstract class Piece {
      * @return possibility to move the piece
      */
     public boolean legalMove(Square from, Square to, ChessBoard board) {
-        boolean moving = from.equals(to); //Piece has to move
-        boolean emptySquare = board.getPiece(from) == null; // Nothing to move in the square
-        boolean outOfBoard = (to.getColumn() < 0) || (8 <= to.getColumn()) || (to.getRow() < 0) || (8 <= to.getRow()); //cannot move out of board
-
-        return !(moving || emptySquare || outOfBoard);
+        return true;
     }
 
     public Color getColor() {
@@ -98,29 +95,28 @@ public abstract class Piece {
      */
     public boolean pieceBetweenDiagonally(Square from, Square to, ChessBoard board) {
         if (Math.abs(from.getRow() - to.getRow()) == Math.abs(from.getColumn() - to.getColumn())) {
-            if (from.getRow() < to.getRow()) {
-                if (from.getColumn() < to.getColumn()) {
-                    pieceBetweenDiagonallyHelper(from.getColumn(), to.getColumn(), from.getRow(), to.getRow(), board);
-                } else {
-                    pieceBetweenDiagonallyHelper(to.getColumn(), from.getColumn(), from.getRow(), to.getRow(), board);
-                }
-            } else {
-                if (from.getColumn() < to.getColumn()) {
-                    pieceBetweenDiagonallyHelper(from.getColumn(), to.getColumn(), to.getRow(), from.getRow(), board);
-                } else {
-                    pieceBetweenDiagonallyHelper(to.getColumn(), from.getColumn(), to.getRow(), from.getRow(), board);
-                }
-            }
+            return pieceBetweenDiagonallyHelper(from.getColumn(), to.getColumn(), from.getRow(), to.getRow(), board);
         }
         return false;
     }
 
     private boolean pieceBetweenDiagonallyHelper(int fromX, int toX, int fromY, int toY, ChessBoard board) {
-        for (int i = fromX + 1; i < toX; i++) {
-            for (int j = fromY + 1; j < toY; j++) {
-                if (board.getPiece(new Square(i, j)) != null) {
-                    return true;
-                }
+        int x = 1;
+        int y = 1;
+        if (fromX > toX) {
+            x = -1;
+        }
+        if (fromY > toY) {
+            y = -1;
+        }
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
+        int i = Math.abs(toX - fromX);
+        for (int j = 1; j < i; j++) {
+            System.out.println("xcoord: " + (fromX + (x * j)));
+            System.out.println("ycoord: " + (fromY + (y * j)));
+            if (board.getPiece(new Square((fromX + (x * j)), (fromY + (y * j)))) != null) {
+                return true;
             }
         }
         return false;

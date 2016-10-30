@@ -3,19 +3,10 @@
  */
 package shakki.game;
 
-import java.util.Scanner;
-import javax.swing.SwingUtilities;
-import shakki.gui.SquareButton;
-import shakki.gui.TextUserInterface;
-import shakki.gui.UserInterface;
-import shakki.piece.Bishop;
-import shakki.piece.Color;
 import shakki.piece.King;
-import shakki.piece.Knight;
 import shakki.piece.Pawn;
 import shakki.piece.Piece;
 import shakki.piece.Queen;
-import shakki.piece.Rook;
 import shakki.player.HumanPlayer;
 import shakki.player.Player;
 
@@ -28,7 +19,6 @@ public class Chess {
     private boolean enPassantPossible;
     private boolean castlingPossible;
     private String message;
-    //private TextUserInterface ui;
 
     /**
      * Constructor sets the board, the players and the initial values of some
@@ -42,7 +32,6 @@ public class Chess {
         this.castlingPossible = false;
         this.check = false;
         this.message = "White player starts";
-        //this.ui = new TextUserInterface();
 
     }
 
@@ -54,14 +43,12 @@ public class Chess {
      * @param to The destination
      */
     public void move(Square from, Square to) {
-        Piece moving = board.getPiece(from);
-        Piece captured = board.getPiece(to);
-        if (moving == null) {
-            System.out.println("Cannot move empty square");
-            this.message = "Tried to move empty square";
+        if (!squareOnBoard(from) || !squareOnBoard(to) || from.equals(to) || (board.getPiece(from) == null)) { //Piece has to move on board
             return;
         }
-        System.out.println("Moving");
+        Piece moving = board.getPiece(from);
+        Piece captured = board.getPiece(to);
+
         if (moving.legalMove(from, to, board) && player.movingOwnPiece(moving)) {
             System.out.println("legal move");
             if (captured != null) {
@@ -71,34 +58,41 @@ public class Chess {
                 }
                 if (captured.getClass() == King.class) {
                     this.continues = false;
-                    if(this.player.whiteTurn()) {
-                     this.message = "Game over. White player won";
-                     } else {
-                     this.message = "Game over. Black player won";
-                     }
+                    if (this.player.whiteTurn()) {
+                        this.message = "Game over. White player won";
+                    } else {
+                        this.message = "Game over. Black player won";
+                    }
                     return;
                 }
                 System.out.println("Captured a piece");
             }
-            
-            /*if (moving.getClass() == Pawn.class && to.getRow() == 7) {
-                moving = ui.promotePawn(moving.getColor());
+
+            if (moving.getClass() == Pawn.class && to.getRow() == 7) {
+                moving = new Queen(moving.getColor());
             }
-            */
+
             board.setPiece(moving, to);
             board.setPiece(null, from);
-            System.out.println("piece set on logic board");
             player.changeTurn();
-            if(this.player.whiteTurn()) {
+            if (this.player.whiteTurn()) {
                 this.message = "White player's turn";
-                System.out.println("White player's turn");
-             } else {
+            } else {
                 this.message = "Black player's turn";
-                System.out.println("Black player's turn");
-             }
-            
+            }
         }
-        
+    }
+
+    /**
+     * Checks if the square is on the board.
+     *
+     * @param square The square checked
+     * @return true if the square is on the board and false if it is out of the
+     * board
+     */
+    public boolean squareOnBoard(Square square) {
+        boolean outOfBoard = (square.getColumn() < 0) || (8 <= square.getColumn()) || (square.getRow() < 0) || (8 <= square.getRow());
+        return !outOfBoard;
     }
 
     /**
@@ -118,11 +112,16 @@ public class Chess {
     public boolean checkmate() {
         return !this.continues;
     }
-    
+
     public String getMessage() {
         return this.message;
     }
+
     public ChessBoard getBoard() {
         return this.board;
+    }
+
+    public Player getPlayer() {
+        return this.player;
     }
 }

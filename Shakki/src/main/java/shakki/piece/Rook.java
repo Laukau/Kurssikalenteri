@@ -7,9 +7,10 @@ import shakki.game.ChessBoard;
 import shakki.game.Square;
 
 public class Rook extends Piece {
-    
+
     /**
      * Constructor sets the color.
+     *
      * @param color Color of the rook
      */
     public Rook(Color color) {
@@ -18,9 +19,9 @@ public class Rook extends Piece {
 
     @Override
     public boolean legalMove(Square from, Square to, ChessBoard board) {
-        boolean possibleMove = super.legalMove(from, to, board) && !super.pieceBetweenSameColumnOrRow(from, to, board);
+        boolean possibleMove = !super.pieceBetweenSameColumnOrRow(from, to, board);
         boolean rookMove = from.getRow() == to.getRow() || from.getColumn() == to.getColumn();
-        
+
         return possibleMove && rookMove;
     }
 

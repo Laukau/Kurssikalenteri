@@ -35,9 +35,7 @@ public class ButtonListener implements ActionListener{
         }
         if(ui.getFirstSquareClicked() == null) {
             ui.setFirstSquareClicked(square);
-            System.out.println("Eka GuiPiece lisätty");
         } else {
-            System.out.println("Toka GuiPiece lisätty");
             chess.move(ui.getFirstSquareClicked(), square);
             ui.setFirstSquareClicked(null);
             ui.repaintBoard();

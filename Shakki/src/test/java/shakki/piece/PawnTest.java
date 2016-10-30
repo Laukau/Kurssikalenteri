@@ -74,4 +74,11 @@ public class PawnTest {
         assertNull(board.getPiece(sqr1));
         assertNull(board.getPiece(sqr2));
     }
+    
+    @Test
+    public void cannotCaptureOwnPiece() {
+        Square sqr = new Square(4,5);
+        board.setPiece(new Pawn(BLACK), sqr);
+        assertFalse(pawn2.legalMove(new Square(4,6), new Square(5,5), board));
+    }
 }

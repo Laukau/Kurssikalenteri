@@ -7,9 +7,10 @@ import shakki.game.ChessBoard;
 import shakki.game.Square;
 
 public class King extends Piece {
-    
+
     /**
      * Constructor sets the color.
+     *
      * @param color The color of the king
      */
     public King(Color color) {
@@ -19,8 +20,7 @@ public class King extends Piece {
     @Override
     public boolean legalMove(Square from, Square to, ChessBoard board) {
         boolean kingMove = from.getRow() - 1 <= to.getRow() && from.getRow() + 1 >= to.getRow() && from.getColumn() - 1 <= to.getColumn() && from.getColumn() + 1 >= to.getColumn();
-        
-        return super.legalMove(from, to, board) && kingMove;
+        return kingMove;
     }
 
 }
