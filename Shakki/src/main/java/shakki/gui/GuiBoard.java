@@ -5,25 +5,15 @@
  */
 package shakki.gui;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.List;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JToolBar;
-import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
 import shakki.game.Chess;
 import shakki.game.Square;
-import shakki.game.ChessBoard;
 import shakki.piece.Bishop;
 import shakki.piece.King;
 import shakki.piece.Knight;
@@ -36,68 +26,30 @@ import shakki.piece.Rook;
  *
  * @author Laura
  */
-public class UserInterface implements Runnable {
-    private JFrame frame;
+public class GuiBoard extends JPanel {
+    /*private SquareButton squares[][];
     private Chess chess;
-    private JLabel message;
-    private JPanel board;
-    private SquareButton squares[][];
-    private JToolBar tools;
     private Square firstSquareClicked;
     
-    public UserInterface(Chess chess) {
+    public GuiBoard (Chess chess) {
         this.chess = chess;
-        this.message = new JLabel("White player starts");
-        //this.board = new GuiBoard(this.chess);
-        //this.squares = board.getSquares();
-    }
-    @Override
-    public void run() {
-        frame = new JFrame("Chess");
-        frame.setPreferredSize(new Dimension(600, 600));
-        frame.setBackground(Color.LIGHT_GRAY);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        createComponents(frame.getContentPane());
-
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    private void createComponents(Container container) {
-        container.setLayout(new BorderLayout());
-        container.add(createToolBar(), BorderLayout.NORTH);
-        container.add(createBoard(), BorderLayout.CENTER);
-    }
-    
-    private JToolBar createToolBar() {
-        this.tools = new JToolBar();
-        JButton newGame = new JButton("New");
-        // TODO add action listener to newGame
-        tools.add(newGame);
-        tools.addSeparator();
-        tools.add(message);
         
-        return tools;
-    }
-    private JPanel createBoard() {
-        this.board = new JPanel(new GridLayout(0,9));
+        this.setLayout(new GridLayout(0,9));
         this.squares = new SquareButton[8][8];
         createSquares();
         // add the row numbers and the squares created
         for(int i = 0; i < 8; i++) {
-            board.add(new JLabel("" + (i + 1)));
+            this.add(new JLabel("" + (i + 1)));
             for (int j = 0; j < 8; j++) {
-                board.add(squares[i][j]);
+                this.add(squares[i][j]);
             }
         }
-        board.add(new JLabel(""));
+        this.add(new JLabel(""));
         // add the column letters
         String[] columns = new String[] {"A", "B", "C", "D", "E", "F", "G", "H"};
         for(int i = 0; i < 8; i++) {
-            board.add(new JLabel(columns[i]));
+            this.add(new JLabel(columns[i]));
         }
-        return this.board;
     }
     
     private void createSquares() {
@@ -115,6 +67,7 @@ public class UserInterface implements Runnable {
                 squares[i][j] = button;
             }
         }
+        
     }
     
     public void setPieceToSquare(Piece p, JButton square) {
@@ -164,25 +117,16 @@ public class UserInterface implements Runnable {
         }
     }
 
-    private void setPieceLabel(String s, JButton b, Color color) {
-        b.setFont(new Font("Sans-Serif", Font.PLAIN, 30));
-        b.setForeground(color);
-        if(b.getBackground() == Color.BLACK) {
-            b.setBackground(Color.BLACK);
-        } else {
-            b.setBackground(Color.WHITE);
-        }
-        b.setText(s);
-        /*JLabel label = new JLabel(s);
+    private void setPieceLabel(String s, Container c, Color color) {
+        JLabel label = new JLabel(s);
         label.setFont(new Font("Sans-Serif", Font.PLAIN, 30));
         label.setForeground(color);
-        if(b.getBackground() == Color.BLACK) {
+        if(c.getBackground() == Color.BLACK) {
             label.setBackground(Color.BLACK);
         } else {
             label.setBackground(Color.WHITE);
         }
-        b.add(label);
-                */
+        c.add(label);
     }
     
     public void setFirstSquareClicked(Square square) {
@@ -193,19 +137,8 @@ public class UserInterface implements Runnable {
         return this.firstSquareClicked;
     }
     
-    
-    public JFrame getFrame() {
-        return frame;
+    public SquareButton[][] getSquares() {
+        return this.squares;
     }
-    public void repaintBoard() {
-        for(int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                setPieceToSquare(chess.getBoard().getPiece(new Square(Math.abs(7 - j), Math.abs(7 - i))), squares[i][j]);
-            }
-        }
-        this.message.setText(chess.getMessage());
-        System.out.println("repaint");
-        this.frame.getContentPane().validate();
-        this.frame.getContentPane().repaint();
-    }    
+    */  
 }

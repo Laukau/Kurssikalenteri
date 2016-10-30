@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import shakki.game.Chess;
+import shakki.game.Square;
 
 /**
  *
@@ -18,13 +19,13 @@ import shakki.game.Chess;
  */
 public class ButtonListener implements ActionListener{
     private Chess chess;
-    private GuiPiece piece;
-    private JPanel board;
+    private Square square;
+    private UserInterface ui;
     
-    public ButtonListener(GuiPiece piece, Chess chess, JPanel board) {
-        this.piece = piece;
+    public ButtonListener(Square square, Chess chess, UserInterface ui) {
+        this.square = square;
         this.chess = chess;
-        this.board = board;
+        this.ui = ui;
     }
     
     @Override
@@ -32,18 +33,14 @@ public class ButtonListener implements ActionListener{
         if(chess.checkmate()) {
             return;
         }
-        this.piece.setButton((JButton) ae.getSource());
-        if(chess.firstSquareClicked()) {
-            chess.setFromGuiPiece(this.piece);
-            chess.setFirstSquareClicked(false);
+        if(ui.getFirstSquareClicked() == null) {
+            ui.setFirstSquareClicked(square);
             System.out.println("Eka GuiPiece lisätty");
         } else {
-            chess.setToGuiPiece(this.piece);
-            chess.setFirstSquareClicked(true);
             System.out.println("Toka GuiPiece lisätty");
-            chess.move(chess.getFromGuiPiece().convertCoordinatesToSquare(), chess.getToGuiPiece().convertCoordinatesToSquare());
-            
-            
+            chess.move(ui.getFirstSquareClicked(), square);
+            ui.setFirstSquareClicked(null);
+            ui.repaintBoard();
         }
         
     }

@@ -17,37 +17,28 @@ import shakki.game.Square;
  *
  * @author Laura
  */
-public class GuiPiece {
+public class SquareButton extends JButton {
     private final int x;
     private final int y;
-    private JLabel label;
-    private JButton squareButton;
     
     
-    public GuiPiece(int x, int y, String label) {
+    public SquareButton(int x, int y) {
         this.x = x;
         this.y = y;
-        this.label = new JLabel(label);
-        this.squareButton = new JButton();
     }
     
     public Square convertCoordinatesToSquare() {
-        return new Square(Math.abs(7 - this.y), Math.abs(7 - this.x));
+        return new Square(Math.abs(7 - this.y), Math.abs(7-this.x));
     }
+    
+    @Override
     public int getX() {
         return this.x;
     }
+    
+    @Override
     public int getY() {
         return this.y;
     }
-    public void setButton(JButton button) {
-        this.squareButton = button;
-    }
-    public void setLabel(JLabel label) {
-        this.label = label;
-        this.squareButton.add(label);
-    }
-    public JLabel getLabel() {
-        return this.label;
-    }
+    
 }

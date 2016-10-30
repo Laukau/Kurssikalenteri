@@ -5,7 +5,7 @@ package shakki.game;
 
 import java.util.Scanner;
 import javax.swing.SwingUtilities;
-import shakki.gui.GuiPiece;
+import shakki.gui.SquareButton;
 import shakki.gui.TextUserInterface;
 import shakki.gui.UserInterface;
 import shakki.piece.Bishop;
@@ -24,14 +24,10 @@ public class Chess {
     private boolean continues;
     private ChessBoard board;
     private Player player;
-    private boolean firstSquare;
     private boolean check;
     private boolean enPassantPossible;
     private boolean castlingPossible;
-    
-    private GuiPiece from;
-    private GuiPiece to;
-    private UserInterface ui;
+    private String message;
     //private TextUserInterface ui;
 
     /**
@@ -45,25 +41,9 @@ public class Chess {
         this.enPassantPossible = false;
         this.castlingPossible = false;
         this.check = false;
-        
-        this.firstSquare = true;
-        this.ui = new UserInterface(this);
+        this.message = "White player starts";
         //this.ui = new TextUserInterface();
 
-    }
-
-    /**
-     * Controls the proceeding of the game.
-     */
-    public void play() {
-        SwingUtilities.invokeLater(ui);
-        
-        /*System.out.println("White player starts");
-        while (this.continues) {
-            ui.drawBoard(this.board);
-            move(ui.readfromSquare(), ui.readToSquare());
-        }
-        */
     }
 
     /**
@@ -78,9 +58,12 @@ public class Chess {
         Piece captured = board.getPiece(to);
         if (moving == null) {
             System.out.println("Cannot move empty square");
+            this.message = "Tried to move empty square";
             return;
         }
+        System.out.println("Moving");
         if (moving.legalMove(from, to, board) && player.movingOwnPiece(moving)) {
+            System.out.println("legal move");
             if (captured != null) {
                 if (moving.getColor() == captured.getColor()) {
                     System.out.println("Cannot capture own piece");
@@ -88,15 +71,14 @@ public class Chess {
                 }
                 if (captured.getClass() == King.class) {
                     this.continues = false;
-                    System.out.println("Game over");
-                    
                     if(this.player.whiteTurn()) {
-                     ui.setMessage("White player won");
+                     this.message = "Game over. White player won";
                      } else {
-                     ui.setMessage("Black player won");
+                     this.message = "Game over. Black player won";
                      }
                     return;
                 }
+                System.out.println("Captured a piece");
             }
             
             /*if (moving.getClass() == Pawn.class && to.getRow() == 7) {
@@ -105,17 +87,16 @@ public class Chess {
             */
             board.setPiece(moving, to);
             board.setPiece(null, from);
-            ui.setPiece(this.from, this.to);
+            System.out.println("piece set on logic board");
             player.changeTurn();
             if(this.player.whiteTurn()) {
-                ui.setMessage("White player's turn");
+                this.message = "White player's turn";
                 System.out.println("White player's turn");
              } else {
-                ui.setMessage("Black player's turn");
+                this.message = "Black player's turn";
                 System.out.println("Black player's turn");
              }
             
-            ui.repaintBoard();
         }
         
     }
@@ -137,26 +118,11 @@ public class Chess {
     public boolean checkmate() {
         return !this.continues;
     }
-
     
-    
-    public boolean firstSquareClicked(){
-     return this.firstSquare;
-     }
-     public void setFirstSquareClicked(boolean value) {
-     this.firstSquare = value;
-     }
-     public void setFromGuiPiece(GuiPiece from) {
-     this.from = from;
-     }
-     public void setToGuiPiece(GuiPiece to) {
-     this.to = to;
-     }
-     public GuiPiece getFromGuiPiece() {
-     return this.from;
-     }
-     public GuiPiece getToGuiPiece() {
-     return this.to;
-     }
-     
+    public String getMessage() {
+        return this.message;
+    }
+    public ChessBoard getBoard() {
+        return this.board;
+    }
 }
