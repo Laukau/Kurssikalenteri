@@ -1,6 +1,6 @@
 # Shakkipeli
 
-Pelissä kaksi pelaajaa siirtää vuorotellen omia nappuloitaan shakkilaudalla pyrkien saattamaan vastustajan kuninkaan hyökkäyksen kohteeksi siten, ettei vastustajalla ole laillista siirtoa sen torjumiseksi. Peli voi kuitenkin myös päättyä luovutukseen tai tasapeliin.
+Pelissä kaksi pelaajaa siirtää vuorotellen omia nappuloitaan shakkilaudalla pyrkien lyömään vastustajan kuninkaan.
 
 ## Dokumentaatio
 
