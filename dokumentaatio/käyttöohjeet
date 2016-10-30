@@ -5,7 +5,7 @@ Se pelaaja, joka ensin saa lyötyä toisen pelaajan kuninkaan, voittaa.
 Jokaisella nappulalla on omat liikkumissääntönsä:
 
 **Sotilas** liikkuu suoraan eteenpäin sen edessä samalla linjalla olevaan tyhjään ruutuun. Alkuasemastaan sitä voi kuitenkin halutessaan siirtää kaksi ruutua kerrallaan, jos nämä molemmat ruudut ovat tyhjiä.
- Muista nappuloista poiketen sotilas ei lyö etuviistoon. Jos sotilas onnistuu kulkemaan vastakkaiselle laidalle asti, se korotetaan vapaavalintaiseksi, omanväriseksi kuningattareksi, torniksi, lähetiksi tai ratsuksi.
+ Muista nappuloista poiketen sotilas lyö etuviistoon. Jos sotilas onnistuu kulkemaan vastakkaiselle laidalle asti, se korotetaan omanväriseksi kuningattareksi.
  
  **Lähetti**  liikkuu viistoon mihin tahansa suuntaan sen verran kuin pelaaja haluaa, muttei kuitenkaan hyppää toisten nappuloiden yli.
  
