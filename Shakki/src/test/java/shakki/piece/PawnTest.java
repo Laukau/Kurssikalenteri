@@ -81,4 +81,12 @@ public class PawnTest {
         board.setPiece(new Pawn(BLACK), sqr);
         assertFalse(pawn2.legalMove(new Square(4,6), new Square(5,5), board));
     }
+    
+    @Test
+    public void cannotMoveToOccupiedSquare() {
+        assertFalse(pawn1.legalMove(new Square(2, 5), new Square(2,6), board));
+        board.setPiece(pawn2, new Square(2, 4));
+        board.setPiece(new Pawn(BLACK), new Square(3, 4));
+        assertFalse(pawn1.legalMove(new Square(2, 3), new Square(3, 4), board));
+    }
 }

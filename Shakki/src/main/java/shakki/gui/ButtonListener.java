@@ -7,40 +7,34 @@ package shakki.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import shakki.game.Chess;
-import shakki.game.Square;
 
 /**
  *
  * @author Laura
  */
-public class ButtonListener implements ActionListener{
+public class ButtonListener implements ActionListener {
+
     private Chess chess;
-    private Square square;
     private UserInterface ui;
-    
-    public ButtonListener(Square square, Chess chess, UserInterface ui) {
-        this.square = square;
+
+    public ButtonListener(Chess chess, UserInterface ui) {
         this.chess = chess;
         this.ui = ui;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(chess.checkmate()) {
+        if (chess.checkmate()) {
             return;
         }
-        if(ui.getFirstSquareClicked() == null) {
-            ui.setFirstSquareClicked(square);
+        SquareButton button = (SquareButton) ae.getSource();
+        if (ui.getFirstSquareClicked() == null) {
+            ui.setFirstSquareClicked(button);
         } else {
-            chess.move(ui.getFirstSquareClicked(), square);
+            chess.move(ui.getFirstSquareClicked().convertCoordinatesToSquare(), button.convertCoordinatesToSquare());
             ui.setFirstSquareClicked(null);
             ui.repaintBoard();
         }
-        
     }
-    
 }

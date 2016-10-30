@@ -5,12 +5,7 @@
  */
 package shakki.gui;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import shakki.game.Chess;
 import shakki.game.Square;
 
 /**

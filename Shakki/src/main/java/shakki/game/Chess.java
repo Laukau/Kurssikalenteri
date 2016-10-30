@@ -15,9 +15,6 @@ public class Chess {
     private boolean continues;
     private ChessBoard board;
     private Player player;
-    private boolean check;
-    private boolean enPassantPossible;
-    private boolean castlingPossible;
     private String message;
 
     /**
@@ -28,9 +25,6 @@ public class Chess {
         this.continues = true;
         this.board = new ChessBoard();
         this.player = new HumanPlayer();
-        this.enPassantPossible = false;
-        this.castlingPossible = false;
-        this.check = false;
         this.message = "White player starts";
 
     }
@@ -54,7 +48,6 @@ public class Chess {
         }
         if (captured != null) {
             if (moving.getColor() == captured.getColor()) {
-                System.out.println("Cannot capture own piece");
                 return;
             }
             if (captured.getClass() == King.class) {
@@ -66,7 +59,6 @@ public class Chess {
                 }
                 return;
             }
-            System.out.println("Captured a piece");
         }
 
         if (moving.getClass() == Pawn.class && to.getRow() == 7) {
@@ -94,15 +86,6 @@ public class Chess {
     public boolean squareOnBoard(Square square) {
         boolean outOfBoard = (square.getColumn() < 0) || (8 <= square.getColumn()) || (square.getRow() < 0) || (8 <= square.getRow());
         return !outOfBoard;
-    }
-
-    /**
-     * Checks if it is check.
-     *
-     * @return true if the king is in check and false otherwise
-     */
-    public boolean check() {
-        return this.check;
     }
 
     /**

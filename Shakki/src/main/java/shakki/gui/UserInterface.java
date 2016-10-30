@@ -7,25 +7,19 @@ package shakki.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.List;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
-import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import shakki.game.Chess;
 import shakki.game.Square;
-import shakki.game.ChessBoard;
 import shakki.piece.Bishop;
 import shakki.piece.King;
 import shakki.piece.Knight;
@@ -46,7 +40,7 @@ public class UserInterface implements Runnable {
     private JPanel board;
     private SquareButton squares[][];
     private JToolBar tools;
-    private Square firstSquareClicked;
+    private SquareButton firstSquareClicked;
 
     public UserInterface(Chess chess) {
         this.chess = chess;
@@ -117,13 +111,13 @@ public class UserInterface implements Runnable {
                     button.setBackground(Color.BLACK);
                 }
                 setPieceToSquare(this.chess.getBoard().getPiece(button.convertCoordinatesToSquare()), button);
-                button.addActionListener(new ButtonListener(button.convertCoordinatesToSquare(), this.chess, this));
+                button.addActionListener(new ButtonListener(this.chess, this));
                 squares[i][j] = button;
             }
         }
     }
 
-    public void setPieceToSquare(Piece p, JButton square) {
+    public void setPieceToSquare(Piece p, SquareButton square) {
         String s = "";
         if (p == null) {
             setPieceLabel(s, square, Color.WHITE);
@@ -170,7 +164,8 @@ public class UserInterface implements Runnable {
         }
     }
 
-    private void setPieceLabel(String s, JButton b, Color color) {
+    //Sets the font and color of the unicode char
+    private void setPieceLabel(String s, SquareButton b, Color color) {
         b.setFont(new Font("Sans-Serif", Font.PLAIN, 30));
         b.setForeground(color);
         if (b.getBackground() == Color.BLACK) {
@@ -181,11 +176,11 @@ public class UserInterface implements Runnable {
         b.setText(s);
     }
 
-    public void setFirstSquareClicked(Square square) {
+    public void setFirstSquareClicked(SquareButton square) {
         this.firstSquareClicked = square;
     }
 
-    public Square getFirstSquareClicked() {
+    public SquareButton getFirstSquareClicked() {
         return this.firstSquareClicked;
     }
 
@@ -200,7 +195,6 @@ public class UserInterface implements Runnable {
             }
         }
         this.message.setText(chess.getMessage());
-        System.out.println("repaint");
         this.frame.getContentPane().validate();
         this.frame.getContentPane().repaint();
     }

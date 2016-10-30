@@ -61,7 +61,6 @@ public abstract class Piece {
                 return pieceBetweenRowHelper(to.getColumn(), from.getColumn(), to.getRow(), board);
             }
         }
-
         return false;
     }
 
@@ -109,12 +108,8 @@ public abstract class Piece {
         if (fromY > toY) {
             y = -1;
         }
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
         int i = Math.abs(toX - fromX);
         for (int j = 1; j < i; j++) {
-            System.out.println("xcoord: " + (fromX + (x * j)));
-            System.out.println("ycoord: " + (fromY + (y * j)));
             if (board.getPiece(new Square((fromX + (x * j)), (fromY + (y * j)))) != null) {
                 return true;
             }
